@@ -1,0 +1,71 @@
+{
+  "canvas": {"width": 30, "height": 20, "units": "inches"},
+
+  "columns": {
+    "Alpha": {"x_min": 0.0,  "x_max": 9.6},
+    "Beta":  {"x_min": 10.5, "x_max": 19.4},
+    "Gamma": {"x_min": 20.3, "x_max": 30.0}
+  },
+
+  "areas": {
+    "Machining": {"y_min": 2.50, "y_max": 8.30},
+    "Painting":  {"y_min": 8.90, "y_max": 13.10},
+    "Assembly":  {"y_min": 13.70, "y_max": 17.90}
+  },
+
+  "warehouses": {
+    "Raw Materials":   {"x_min": 0.0,  "x_max": 30.0, "y_min": 0.00, "y_max": 2.50},
+    "Finished Goods":  {"x_min": 0.0,  "x_max": 30.0, "y_min": 17.90, "y_max": 20.00}
+  },
+
+  "aisles": [
+    {"x": 9.60,  "w": 0.90},
+    {"x": 19.40, "w": 0.90}
+  ],
+
+  "machines": {
+    "CNC-A1": {"x": 0.50, "y": 2.80, "w": 2.70, "h": 1.90, "vsm": "Alpha", "area": "Machining"},
+    "CNC-A2": {"x": 3.45, "y": 2.80, "w": 2.70, "h": 1.90, "vsm": "Alpha", "area": "Machining"},
+    "CNC-A3": {"x": 6.40, "y": 2.80, "w": 2.70, "h": 1.90, "vsm": "Alpha", "area": "Machining"},
+    "CNC-A4": {"x": 0.50, "y": 5.20, "w": 2.70, "h": 1.90, "vsm": "Alpha", "area": "Machining"},
+    "CNC-A5": {"x": 3.45, "y": 5.20, "w": 2.70, "h": 1.90, "vsm": "Alpha", "area": "Machining"},
+
+    "PB-A1":  {"x": 0.50, "y": 9.10, "w": 4.00, "h": 1.60, "vsm": "Alpha", "area": "Painting"},
+    "PB-A2":  {"x": 0.50, "y": 11.00, "w": 4.00, "h": 1.60, "vsm": "Alpha", "area": "Painting"},
+    "CF-A1":  {"x": 4.80, "y": 9.10, "w": 4.30, "h": 3.50, "vsm": "Alpha", "area": "Painting"},
+
+    "AS-A1":  {"x": 0.30, "y": 14.00, "w": 2.00, "h": 1.70, "vsm": "Alpha", "area": "Assembly"},
+    "AS-A2":  {"x": 2.55, "y": 14.00, "w": 2.00, "h": 1.70, "vsm": "Alpha", "area": "Assembly"},
+    "AS-A3":  {"x": 4.80, "y": 14.00, "w": 2.00, "h": 1.70, "vsm": "Alpha", "area": "Assembly"},
+    "AS-A4":  {"x": 7.05, "y": 14.00, "w": 2.00, "h": 1.70, "vsm": "Alpha", "area": "Assembly"},
+    "AS-A5":  {"x": 0.30, "y": 16.00, "w": 2.00, "h": 1.70, "vsm": "Alpha", "area": "Assembly"},
+    "AS-A6":  {"x": 2.55, "y": 16.00, "w": 2.00, "h": 1.70, "vsm": "Alpha", "area": "Assembly"},
+    "AS-A7":  {"x": 4.80, "y": 16.00, "w": 2.00, "h": 1.70, "vsm": "Alpha", "area": "Assembly"},
+    "AS-A8":  {"x": 7.05, "y": 16.00, "w": 2.00, "h": 1.70, "vsm": "Alpha", "area": "Assembly"},
+
+    "CNC-B1": {"x": 10.80, "y": 2.80, "w": 2.50, "h": 1.90, "vsm": "Beta",  "area": "Machining"},
+    "CNC-B2": {"x": 13.55, "y": 2.80, "w": 2.50, "h": 1.90, "vsm": "Beta",  "area": "Machining"},
+    "CNC-B3": {"x": 16.30, "y": 2.80, "w": 2.50, "h": 1.90, "vsm": "Beta",  "area": "Machining"},
+    "LT-B1":  {"x": 10.80, "y": 5.20, "w": 5.50, "h": 2.40, "vsm": "Beta",  "area": "Machining"},
+
+    "PB-B1":  {"x": 10.80, "y": 9.10, "w": 3.70, "h": 1.80, "vsm": "Beta",  "area": "Painting"},
+    "CF-B1":  {"x": 14.80, "y": 9.10, "w": 4.10, "h": 3.50, "vsm": "Beta",  "area": "Painting"},
+
+    "AS-B1":  {"x": 10.80, "y": 14.00, "w": 2.10, "h": 1.70, "vsm": "Beta",  "area": "Assembly"},
+    "AS-B2":  {"x": 13.10, "y": 14.00, "w": 2.10, "h": 1.70, "vsm": "Beta",  "area": "Assembly"},
+    "AS-B3":  {"x": 15.40, "y": 14.00, "w": 2.10, "h": 1.70, "vsm": "Beta",  "area": "Assembly"},
+    "AS-B4":  {"x": 10.80, "y": 16.00, "w": 2.10, "h": 1.70, "vsm": "Beta",  "area": "Assembly"},
+    "AS-B5":  {"x": 13.10, "y": 16.00, "w": 2.10, "h": 1.70, "vsm": "Beta",  "area": "Assembly"},
+
+    "CNC-G1": {"x": 20.60, "y": 2.80, "w": 2.60, "h": 1.90, "vsm": "Gamma", "area": "Machining"},
+    "CNC-G2": {"x": 23.50, "y": 2.80, "w": 2.60, "h": 1.90, "vsm": "Gamma", "area": "Machining"},
+    "VMC-G1": {"x": 20.60, "y": 5.20, "w": 4.00, "h": 2.40, "vsm": "Gamma", "area": "Machining"},
+
+    "PB-G1":  {"x": 20.60, "y": 9.10, "w": 3.50, "h": 1.80, "vsm": "Gamma", "area": "Painting"},
+    "CF-G1":  {"x": 24.40, "y": 9.10, "w": 4.80, "h": 3.50, "vsm": "Gamma", "area": "Painting"},
+
+    "AS-G1":  {"x": 20.60, "y": 14.00, "w": 2.80, "h": 1.70, "vsm": "Gamma", "area": "Assembly"},
+    "AS-G2":  {"x": 23.70, "y": 14.00, "w": 2.80, "h": 1.70, "vsm": "Gamma", "area": "Assembly"},
+    "AS-G3":  {"x": 26.80, "y": 14.00, "w": 2.80, "h": 1.70, "vsm": "Gamma", "area": "Assembly"}
+  }
+}

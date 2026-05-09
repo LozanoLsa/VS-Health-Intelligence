@@ -1,0 +1,40 @@
+project:
+  name: MTBF Spatial Analytics
+  version: "2.0"
+  author: LozanoLsa
+
+paths:
+  raw_data: data/raw
+  processed_data: data/processed
+  layout: data/layout
+  outputs: outputs
+  figures: outputs/figures
+  reports: outputs/reports
+
+data:
+  equipment_master: data/raw/equipment_master.csv
+  failures: data/raw/failures.csv
+  production_data: data/raw/production_data.csv
+  mtbf_metrics: data/processed/mtbf_metrics.csv
+  monthly_metrics: data/processed/monthly_metrics.csv
+  component_metrics: data/processed/component_metrics.csv
+  zones_json: data/layout/zones.json
+  plant_layout_png: data/layout/plant_layout.png
+
+heatmap:
+  output_path: outputs/figures/plant_heatmap.png
+  dpi: 150
+
+health_thresholds:
+  healthy_min: 70
+  monitor_min: 40
+
+health_colors:
+  Healthy: "#2ECC71"
+  Monitor: "#F39C12"
+  Critical: "#E74C3C"
+
+health_weights:
+  mtbf: 0.5
+  availability: 0.3
+  failures: 0.2

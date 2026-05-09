@@ -1,0 +1,70 @@
+STEPS TO RUN - Value Stream Health Intelligence Dashboard
+=========================================================
+
+FIRST TIME ONLY
+---------------
+1. Open PowerShell, CMD, or Terminal
+
+2. Clone the repository:
+   git clone https://github.com/your-username/Dashboard-MTBF-layout.git
+
+3. Navigate to the project folder:
+   cd Dashboard-MTBF-layout/mtbf_spatial_analytics
+
+4. Install dependencies:
+   pip install -r requirements.txt
+
+5. Make sure your 3 source CSV files are inside:
+      data/raw/equipment_master.csv
+      data/raw/failures.csv
+      data/raw/production_data.csv
+
+6. Run the ETL pipeline (computes MTBF, MTTR, health scores, and component metrics):
+   python _run_etl.py
+
+   Generates 3 processed files:
+      data/processed/mtbf_metrics.csv       -- Current KPIs per machine
+      data/processed/monthly_metrics.csv    -- Time series for forecasting
+      data/processed/component_metrics.csv  -- Component-level failure detail
+
+7. Launch the dashboard:
+   streamlit run app.py
+
+   --> Opens automatically at:
+       http://localhost:8501
+
+
+EVERY TIME YOU WANT TO OPEN IT
+-------------------------------
+1. Open PowerShell, CMD, or Terminal
+
+2. Navigate to the project folder:
+   cd Dashboard-MTBF-layout/mtbf_spatial_analytics
+
+3. Launch the dashboard:
+   streamlit run app.py
+
+
+TO STOP THE APPLICATION
+-----------------------
+Press:
+   Ctrl + C
+
+
+DATA REFRESH
+------------
+If you receive updated failure records:
+
+1. Replace or update:
+      data/raw/failures.csv
+
+2. Re-run the ETL pipeline:
+      python _run_etl.py
+
+3. Relaunch the dashboard:
+      streamlit run app.py
+
+The ETL pipeline will recompute all metrics:
+- MTBF / MTTR / Availability / Health Scores
+- Monthly time series for trend forecasting
+- Component-level root cause and prescriptive analytics

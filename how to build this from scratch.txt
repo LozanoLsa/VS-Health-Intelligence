@@ -1,0 +1,376 @@
+HOW TO BUILD THIS PROJECT FROM SCRATCH
+Value Stream Health Intelligence — LozanoLsa
+========================================
+
+If you were building this without any AI help, here is how you would
+think through it, what decisions you would make, and in what order.
+
+
+STEP 0 — DEFINE THE PROBLEM CLEARLY BEFORE WRITING ANY CODE
+------------------------------------------------------------
+Before opening your editor, answer 4 questions:
+
+  1. What is the business question?
+     "Which machines are failing, where are they on the floor,
+      why are they failing, and what should we do about it?"
+
+  2. What is the output?
+     A 4-tab dashboard where a Plant Manager can:
+       Tab 1 — See the plant floor heatmap and Value Stream health cards
+       Tab 2 — Analyze trends over any date range
+       Tab 3 — See failure forecasts per machine for the next 1-3 months
+       Tab 4 — Get a prioritized, cost-justified action plan per component
+
+  3. What data do I need?
+     - A list of machines (equipment master)
+     - A log of failures with component-level detail (failures)
+     - A coordinate map of where each machine sits on the plant floor
+
+  4. What is the ML angle?
+     Linear regression on each machine's health score time series.
+     Not a black box — a slope and an intercept that a reliability
+     engineer can audit, challenge, and override.
+
+  Without clarity on these 4 things, you will write code that solves
+  the wrong problem. This is the most common mistake on ML portfolio
+  projects — jumping to code before defining the output.
+
+
+STEP 1 — IDENTIFY YOUR DATA SOURCES
+-------------------------------------
+Real manufacturing plants store operational data in 3 types of systems.
+
+  CMMS (Computerized Maintenance Management System):
+    Examples: SAP PM, IBM Maximo, eMaint, Fiix, Limble
+    What it gives you:
+      - Work orders: machine ID, date, failure mode, downtime hours,
+        repair hours, technician, root cause
+      - Component-level detail: which part failed, what was replaced,
+        lead time for that part, time to diagnose
+      - Equipment master: machine catalog, installation year, manufacturer
+    How to export: most CMMS have a built-in report export to CSV or Excel.
+
+  ERP (Enterprise Resource Planning):
+    Examples: SAP, Oracle, Microsoft Dynamics
+    What it gives you:
+      - Equipment master with cost data (downtime cost per hour)
+      - Asset registers classified by area and production line
+
+  MES (Manufacturing Execution System) or Shift Reports:
+    Examples: Ignition, Wonderware, Siemens Opcenter, Excel shift logs
+    What it gives you:
+      - Daily/shift production data: planned vs actual hours, units, OEE
+
+  If your plant does not have these systems yet:
+    Start with maintenance work order binders or Excel logs.
+    Any record of "machine X stopped at time Y, restarted at time Z"
+    is enough to calculate MTBF and MTTR.
+
+
+STEP 2 — DESIGN YOUR DATA SCHEMA ON PAPER
+------------------------------------------
+Before creating any file, sketch your tables.
+
+  equipment_master:
+    One row per machine. Columns: ID, VSM line, area, type, age,
+    manufacturer, downtime cost per hour.
+
+  failures (16 columns — component-level detail is key):
+    One row per failure event. Core columns: when, which machine,
+    what failed, downtime hours, repair hours, who fixed it.
+    Component columns (critical for Root Cause tab):
+      component, failure_type, technician_type, part_replaced,
+      part_cost_usd, part_lead_time_days, time_to_diagnose_hrs
+
+    Why component detail matters: without it, you can see THAT a machine
+    failed but not WHY. The component columns unlock the entire
+    Root Cause & Prescriptive tab.
+
+  The most common data quality issues:
+    - machine_id values that don't match between systems
+    - Missing downtime hours (technician closed work order without filling it)
+    - Dates in inconsistent formats (MM/DD/YYYY vs YYYY-MM-DD)
+    - Component field is free text in many CMMS — needs standardization
+
+  Fix all of this BEFORE loading into Python.
+
+
+STEP 3 — UNDERSTAND THE METRICS MATHEMATICALLY
+-----------------------------------------------
+You cannot code a metric you do not understand.
+
+  MTBF (Mean Time Between Failures):
+    MTBF = Total operating hours / Number of failures
+    HIGH MTBF = machine runs a long time before breaking. GOOD.
+
+  MTTR (Mean Time To Repair):
+    MTTR = Sum of all repair times / Number of repairs
+    LOW MTTR = when it breaks, it gets fixed fast. GOOD.
+
+  Availability:
+    Availability = (Available hours - Downtime hours) / Available hours
+    This is the one number a Plant Manager understands immediately.
+
+  Health Score (composite 0-100):
+    score = (MTBF_normalized  * 0.50)
+          + (Availability     * 0.30)
+          + (1 - Fails_norm)  * 0.20
+    × 100
+    Why these weights: MTBF is the strongest reliability signal (50%),
+    availability is what production feels directly (30%),
+    failures adds recency context (20%).
+
+  Thresholds:
+    >= 70  Healthy  (Green)
+    40-69  Monitor  (Amber)
+    < 40   Critical (Red)
+
+  Component MTTR:
+    Average repair time for a specific component across all its failures.
+    Used to identify diagnostic bottlenecks (slow-to-repair components).
+
+  Prescriptive ROI:
+    ROI = (Cost if ignored - Cost to act) / Cost to act × 100
+    Projected inaction cost = historical failure rate × avg cost per event × 3 months
+
+
+STEP 4 — BUILD THE FOLDER STRUCTURE FIRST
+------------------------------------------
+  data/raw/          --> raw input CSVs (never edit these)
+  data/processed/    --> pipeline output (3 CSVs)
+  data/layout/       --> zones.json coordinate map
+  src/etl/           --> extract, transform, load
+  src/metrics/       --> MTBF, MTTR, OEE formulas
+  src/spatial/       --> heatmap engine (Plotly)
+  src/visualization/ --> chart helpers (trends, root cause, plots)
+  src/ml/            --> forecasting + prescriptive + explainer
+  src/utils/         --> config, logging, helpers
+  tests/             --> automated checks
+  notebooks/         --> EDA and methodology walkthroughs
+  outputs/           --> generated PNG files
+
+  Why this matters: structure signals that you think in systems,
+  not scripts. The src/ml/ folder is a deliberate architectural
+  decision — the ML layer is decoupled from the visualization layer
+  through the MachineForecast dataclass as an interface contract.
+
+
+STEP 5 — BUILD THE ETL PIPELINE (not the dashboard)
+----------------------------------------------------
+Build the data pipeline first. The dashboard is just a skin on top.
+
+  The pipeline generates 3 processed CSVs:
+
+  1. mtbf_metrics.csv — current-period KPIs per machine
+     One row per machine: MTBF, MTTR, availability, failures_30d,
+     health_score, health_status, monthly_downtime_cost.
+
+  2. monthly_metrics.csv — time series for forecasting
+     One row per (machine × month): same KPIs but computed per calendar month.
+     This is what the ML layer reads to fit trend models.
+
+  3. component_metrics.csv — component-level aggregations
+     One row per (machine × component): failure count, total downtime,
+     MTTR per component, repeat failure flags, Pareto cost share.
+     This powers the entire Root Cause & Prescriptive tab.
+
+  Common data quality checks to add in transform.py:
+    - Orphan failures (machine in failures but not in equipment_master)
+    - Zero-failure machines (assign high MTBF, not an error)
+    - Impossibly high downtime_hrs (> 720 hours in one month)
+    - Repeat failure detection: same component, 3+ times in 90 days
+
+
+STEP 6 — BUILD THE SPATIAL LAYER (zones.json)
+----------------------------------------------
+This is the part most data scientists skip — which is exactly why
+including it makes the project stand out.
+
+  Define a coordinate system for the plant floor:
+    Canvas: 30 × 20 units (matches plant layout proportions)
+    Each machine has: x, y (lower-left corner), w (width), h (height)
+    Areas are horizontal bands (y_min, y_max)
+    VSM lines are vertical columns (x_min, x_max)
+    Aisles are vertical strips (x, w)
+    Warehouses are full-width rectangles at top and bottom
+
+  The critical insight: health score colors ONLY make sense
+  when you can see WHERE on the floor the problem is.
+  This file bridges the data world and the spatial world.
+
+
+STEP 7 — BUILD THE HEATMAP ENGINE (Plotly — interactive)
+---------------------------------------------------------
+The heatmap uses Plotly, not matplotlib, to enable hover tooltips.
+
+  Why Plotly over matplotlib:
+    matplotlib produces a static image — no hover, no interaction.
+    Plotly renders in the browser — hover triggers JavaScript tooltips.
+
+  Architecture:
+    Shapes (add_shape):   all background elements — floor, areas,
+                          aisles, warehouses, machine rectangles.
+                          Shapes are static, colored by health score.
+    Annotations:          machine ID and score text inside each box.
+    Scatter trace:        one invisible square marker per machine center.
+                          This is the hover-active layer.
+                          fillcolor = rgba(0,0,0,0.02) — nearly invisible
+                          but Plotly registers hover over it.
+
+  Hover tooltip shows:
+    Machine ID, VSM, area, health status
+    Score breakdown: MTBF contribution, Avail contribution, Fails contribution
+    MTBF, MTTR, Availability, Failures 30d, Monthly Cost
+
+  Key technical note: fully transparent markers (opacity=0) do NOT
+  trigger hover in Plotly. Use 0.01-0.02 opacity.
+
+  Legend and KPI summary go at the bottom to avoid overlapping
+  Plotly's built-in toolbar buttons (top-right).
+
+
+STEP 8 — BUILD THE ML LAYER
+-----------------------------
+Four components, each in its own file:
+
+  forecasting.py — MachineForecast dataclass + generate_machine_forecasts()
+    For each machine: fit OLS linear regression on monthly health scores.
+    Return slope, intercept, 80% prediction interval, R²adj, MAE.
+
+    Why linear regression and not something more complex:
+      With ~16 months of data, complex models (Random Forest, LSTM)
+      overfit severely. More importantly: in a well-run operation,
+      health scores do NOT follow clean linear trends because
+      maintenance interventions deliberately reset the trajectory.
+      The model measures velocity of deterioration between interventions,
+      not a fixed long-term destiny. Low R² is expected and healthy.
+
+    Why 80% CI and not 95%:
+      With 16 points, a 95% CI spans almost the entire 0-100 range.
+      80% is a practical compromise that communicates uncertainty
+      without being useless.
+
+  explainer.py — generate_machine_insight() + generate_fleet_risk_table()
+    Converts MachineForecast objects into human-readable text insights
+    and a risk ranking table (HIGH / MEDIUM / LOW) per machine.
+
+  prescriptive.py — generate_prescriptive_actions()
+    Fleet-relative percentile thresholds (p90/p75 failure count and cost)
+    trigger prioritized actions. Each action includes:
+      - action type (replace, inspect, order, calibrate, escalate, pm)
+      - urgency (Immediate / This week / Within 2 weeks / Next PM cycle)
+      - cost to act (part cost + technician labour estimate)
+      - cost if ignored (3-month projection)
+      - ROI percentage
+      - confidence (High / Medium / Low)
+
+    Key design decision: use fleet-relative thresholds (percentiles),
+    not absolute thresholds. This makes the engine self-calibrate
+    to any dataset size — with 35 machines or 350 machines.
+
+
+STEP 9 — BUILD THE DASHBOARD LAST
+-----------------------------------
+4 tabs, each calling functions from src/. app.py should only
+orchestrate — no business logic inside it.
+
+  Pre-compute expensive operations before the tabs:
+    VSM forecast summary is used in both Tab 1 and Tab 3.
+    Compute it once before the tab block and pass it to both.
+    This avoids running the same ML computation twice per page load.
+
+  Tab 1 — VS Overview:
+    Plotly heatmap + VSM cost intelligence cards (current + forecast)
+    + Top Critical / Top Healthy tables.
+    Cards: two separate st.markdown() calls per VSM to avoid
+    the nested f-string HTML rendering bug in Streamlit.
+
+  Tab 2 — Monthly Trends:
+    Date range selector (From/To) filters all charts simultaneously.
+    The "To" dropdown dynamically filters to only show months >= From.
+
+  Tab 3 — Predictive Simulation:
+    Reuse pre-computed forecasts. Machine Deep Dive shows trend signal
+    quality (Strong / Moderate / Weak / Noisy) instead of raw R²adj
+    — raw numbers without context mislead non-technical users.
+
+  Tab 4 — Root Cause & Prescriptive:
+    Each section (A-F) has a caption explaining the data type
+    (Historical / Historical + forecast / 3-month projection)
+    and an st.info() block with "How to read it" guidance.
+    This prevents misinterpretation by users unfamiliar with
+    Pareto analysis or prescriptive ROI calculations.
+
+
+STEP 10 — WRITE TESTS
+----------------------
+  test_mtbf.py:     health_score always 0-100, edge cases (0 failures)
+  test_etl.py:      output files exist, correct columns, no nulls
+  test_heatmap.py:  every machine in zones.json has a metrics row
+
+  Run: pytest tests/ -v
+
+
+STEP 11 — NOTEBOOKS ARE FOR STORYTELLING
+-----------------------------------------
+  01_exploration:      what the raw data looks like
+  02_mtbf_analysis:    how the metrics were calculated
+  03_spatial_mapping:  how the coordinate system was built
+  04_heatmap_prototype: the visualization built step by step
+
+  Write them as if explaining to a Director of Operations
+  who does not write Python.
+
+
+STEP 12 — DOCUMENTATION
+--------------------------
+  README.md:                   product page — business problem, methodology,
+                               how to run, project structure, roadmap
+  how to build from scratch:   this file — architectural decisions
+  steps to run dashboard:      quick-start for users
+
+
+WHAT SKILLS THIS PROJECT DEMONSTRATES
+--------------------------------------
+  Data Engineering:      ETL pipeline, 3-CSV output, component enrichment
+  Statistics:            MTBF/MTTR formulas, percentile thresholds, OLS regression
+  ML Engineering:        MachineForecast dataclass as interface contract,
+                         model-agnostic architecture for future upgrades
+  Python:                pandas, plotly, dataclasses, modular design
+  Software Design:       config-driven, logged, tested, decoupled layers
+  Domain Knowledge:      Operational Excellence, OEE, VSM, CMMS vocabulary
+  Spatial Thinking:      Coordinate systems, layout mapping, Plotly shapes
+  Prescriptive Analytics: ROI calculation, urgency ranking, fleet-relative thresholds
+  Product Sense:         Hover tooltips, date range selectors, signal quality labels,
+                         methodology expander for technical users
+
+  Most data science portfolios show models. This one shows a system.
+  Systems get you hired.
+
+
+TIME ESTIMATE IF DOING THIS SOLO
+---------------------------------
+  Problem definition + data sourcing:         3 hours
+  Data cleaning + component enrichment:       6 hours
+  ETL pipeline (3 CSVs):                      6 hours
+  zones.json coordinate system:               3 hours
+  Plotly interactive heatmap:                 8 hours
+  Monthly trends tab:                         4 hours
+  ML forecasting layer:                       5 hours
+  Prescriptive engine:                        8 hours
+  Root cause visualizations:                  5 hours
+  Dashboard integration (4 tabs):             6 hours
+  Tests:                                      2 hours
+  Notebooks:                                  3 hours
+  Documentation:                              3 hours
+                                              ---------
+  Total honest estimate:                      ~62 hours across 4-6 weeks
+
+  The component enrichment and prescriptive engine steps are what
+  separate this from a basic MTBF dashboard. Anyone can plot a bar chart
+  of failures per machine. Translating that into a cost-justified,
+  urgency-ranked action plan with ROI is what practitioners actually need.
+
+
+========================================
+LozanoLsa · Turning Operations into Predictive Systems
