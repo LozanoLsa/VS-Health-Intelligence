@@ -1,0 +1,161 @@
+machine_id,vsm,area,machine_type,component,failure_type,technician_type,part_replaced,failure_count,total_downtime_hrs,total_repair_hrs,mttr_component_hrs,avg_diagnose_hrs,avg_part_cost_usd,part_lead_time_days,total_downtime_cost,repeat_failure_90d,pct_of_total_cost,cumulative_pct
+VMC-G1,Gamma,Machining,VMC,servo_drive,electrical,electrical,servo_amplifier,103,877.16,713.4,6.93,2.26,589.51,8,192975.2,True,12.9,12.9
+LT-B1,Beta,Machining,Lathe,spindle,mechanical,mechanical,precision_bearing,73,552.98,459.71,6.3,1.07,190.15,5,110596.0,True,7.4,20.3
+VMC-G1,Gamma,Machining,VMC,spindle,electrical,electrical,spindle_motor_controller,47,403.68,322.65,6.86,2.25,495.1,9,88809.6,True,6.0,26.3
+VMC-G1,Gamma,Machining,VMC,coolant_system,hydraulic,hydraulic,coolant_pump,45,387.71,309.66,6.88,1.45,285.12,4,85296.2,True,5.7,32.0
+VMC-G1,Gamma,Machining,VMC,tool_changer,mechanical,mechanical,tool_changer_actuator,48,384.2,351.1,7.31,1.63,345.56,5,84524.0,True,5.7,37.7
+LT-B1,Beta,Machining,Lathe,feed_mechanism,mechanical,mechanical,drive_belt,45,352.02,292.04,6.49,0.68,49.56,2,70404.0,True,4.7,42.4
+LT-B1,Beta,Machining,Lathe,chuck_assembly,mechanical,mechanical,chuck_jaw_set,40,307.54,246.55,6.16,1.36,200.81,5,61508.0,True,4.1,46.5
+LT-B1,Beta,Machining,Lathe,electrical_panel,electrical,electrical,terminal_block,34,251.3,208.81,6.14,1.57,41.58,2,50260.0,True,3.4,49.9
+CF-B1,Beta,Painting,Curing Furnace,control_panel,electrical,electrical,plc_module,26,183.9,145.43,5.59,2.2,970.31,10,44136.0,True,3.0,52.9
+CF-B1,Beta,Painting,Curing Furnace,conveyor_system,electrical,electrical,motor_starter,25,178.42,144.87,5.79,1.73,286.92,5,42820.8,True,2.9,55.8
+CF-B1,Beta,Painting,Curing Furnace,heating_element,electrical,electrical,resistance_heating_rod,22,147.64,119.26,5.42,1.62,280.02,8,35433.6,True,2.4,58.2
+CF-B1,Beta,Painting,Curing Furnace,temperature_control,electrical,electrical,thermocouple_probe,20,135.33,95.74,4.79,1.39,82.24,3,32479.2,True,2.2,60.4
+CNC-B2,Beta,Machining,CNC,servo_drive,electrical,electrical,servo_driver_board,33,123.97,102.35,3.1,1.16,494.8,7,23554.3,True,1.6,62.0
+CNC-B3,Beta,Machining,CNC,coolant_system,hydraulic,hydraulic,coolant_pump_seal,23,98.19,84.5,3.67,0.56,56.52,2,18656.1,True,1.3,63.3
+CF-G1,Gamma,Painting,Curing Furnace,conveyor_system,electrical,electrical,motor_starter,16,76.01,63.3,3.96,1.22,300.21,6,17482.3,True,1.2,64.5
+CNC-B3,Beta,Machining,CNC,spindle,mechanical,mechanical,spindle_bearing,19,90.7,68.21,3.59,0.83,216.24,5,17233.0,True,1.2,65.7
+CF-G1,Gamma,Painting,Curing Furnace,control_panel,electrical,electrical,plc_module,15,74.92,61.07,4.07,1.76,887.19,16,17231.6,True,1.2,66.9
+CNC-B1,Beta,Machining,CNC,servo_drive,software,automation,encoder_sensor,29,90.39,80.03,2.76,1.06,512.5,7,17174.1,True,1.2,68.1
+CNC-B3,Beta,Machining,CNC,tool_changer,mechanical,mechanical,tool_insert_set,19,86.18,70.94,3.73,0.37,70.98,2,16374.2,True,1.1,69.2
+PB-B1,Beta,Painting,Paint Booth,filtration_system,mechanical,mechanical,paint_filter_set,24,91.45,75.13,3.13,0.21,60.85,2,15546.5,True,1.0,70.2
+CNC-B3,Beta,Machining,CNC,servo_drive,electrical,electrical,servo_driver_board,17,79.78,65.5,3.85,1.46,590.28,8,15158.2,True,1.0,71.2
+CF-A1,Alpha,Painting,Curing Furnace,heating_element,electrical,electrical,resistance_heating_rod,13,60.04,43.7,3.36,1.01,252.11,7,15010.0,True,1.0,72.2
+CF-A1,Alpha,Painting,Curing Furnace,control_panel,electrical,electrical,plc_module,13,57.37,48.9,3.76,1.5,959.92,17,14342.5,True,1.0,73.2
+CF-A1,Alpha,Painting,Curing Furnace,conveyor_system,electrical,electrical,motor_starter,15,55.55,55.51,3.7,1.07,294.65,6,13887.5,True,0.9,74.1
+PB-B1,Beta,Painting,Paint Booth,spray_system,mechanical,mechanical,atomizer_nozzle,22,74.36,65.37,2.97,0.5,142.56,4,12641.2,True,0.8,74.9
+CF-G1,Gamma,Painting,Curing Furnace,temperature_control,electrical,electrical,thermocouple_probe,12,54.29,56.13,4.68,1.4,79.99,3,12486.7,True,0.8,75.7
+CNC-B1,Beta,Machining,CNC,coolant_system,hydraulic,hydraulic,coolant_pump_seal,19,65.49,51.47,2.71,0.38,53.17,2,12443.1,True,0.8,76.5
+CNC-B2,Beta,Machining,CNC,spindle,mechanical,mechanical,spindle_bearing,16,62.17,49.56,3.1,0.62,253.1,5,11812.3,True,0.8,77.3
+CNC-B2,Beta,Machining,CNC,tool_changer,mechanical,mechanical,tool_insert_set,15,58.62,49.69,3.31,0.31,75.1,2,11137.8,True,0.7,78.0
+CF-G1,Gamma,Painting,Curing Furnace,heating_element,electrical,electrical,resistance_heating_rod,12,48.13,46.39,3.87,1.25,239.62,6,11069.9,True,0.7,78.7
+CNC-B1,Beta,Machining,CNC,spindle,mechanical,mechanical,spindle_bearing,16,55.44,42.1,2.63,0.61,219.48,7,10533.6,True,0.7,79.4
+PB-G1,Gamma,Painting,Paint Booth,spray_system,mechanical,mechanical,atomizer_nozzle,18,55.66,44.51,2.47,0.44,145.78,4,9183.9,True,0.6,80.0
+PB-B1,Beta,Painting,Paint Booth,control_panel,electrical,electrical,hmi_board,14,52.76,42.92,3.07,1.29,479.47,9,8969.2,True,0.6,80.6
+PB-B1,Beta,Painting,Paint Booth,conveyor_system,mechanical,mechanical,conveyor_chain,15,50.43,43.33,2.89,0.47,212.65,5,8573.1,True,0.6,81.2
+CNC-A4,Alpha,Machining,CNC,servo_drive,software,automation,encoder_sensor,25,40.66,34.12,1.36,0.5,458.71,6,8538.6,True,0.6,81.8
+PB-B1,Beta,Painting,Paint Booth,coolant_system,hydraulic,hydraulic,coolant_filter,14,47.79,40.14,2.87,0.25,36.09,1,8124.3,True,0.5,82.3
+CNC-B1,Beta,Machining,CNC,tool_changer,mechanical,mechanical,tool_insert_set,14,42.72,37.81,2.7,0.29,71.81,2,8116.8,True,0.5,82.8
+CNC-G2,Gamma,Machining,CNC,servo_drive,software,automation,encoder_sensor,17,40.57,33.58,1.98,0.75,432.18,6,7911.15,True,0.5,83.3
+PB-G1,Gamma,Painting,Paint Booth,filtration_system,mechanical,mechanical,paint_filter_set,16,47.74,43.89,2.74,0.19,54.74,1,7877.1,True,0.5,83.8
+CNC-B2,Beta,Machining,CNC,coolant_system,hydraulic,hydraulic,coolant_pump_seal,12,41.27,39.56,3.3,0.49,59.19,2,7841.3,True,0.5,84.3
+PB-G1,Gamma,Painting,Paint Booth,conveyor_system,mechanical,mechanical,conveyor_chain,14,44.04,36.5,2.61,0.38,228.78,4,7266.6,True,0.5,84.8
+CF-A1,Alpha,Painting,Curing Furnace,temperature_control,electrical,electrical,thermocouple_probe,5,24.83,15.91,3.18,1.08,88.32,4,6207.5,False,0.4,85.2
+PB-G1,Gamma,Painting,Paint Booth,control_panel,electrical,electrical,hmi_board,13,37.13,35.8,2.75,1.1,483.83,10,6126.45,True,0.4,85.6
+PB-A1,Alpha,Painting,Paint Booth,spray_system,mechanical,mechanical,atomizer_nozzle,13,31.94,26.17,2.01,0.34,141.68,3,5749.2,True,0.4,86.0
+CNC-G1,Gamma,Machining,CNC,servo_drive,software,automation,encoder_sensor,15,28.0,22.03,1.47,0.61,348.41,6,5460.0,True,0.4,86.4
+CNC-G2,Gamma,Machining,CNC,spindle,mechanical,mechanical,spindle_bearing,11,26.44,21.63,1.97,0.44,242.19,7,5155.8,True,0.3,86.7
+CNC-A5,Alpha,Machining,CNC,servo_drive,software,automation,encoder_sensor,17,21.91,19.14,1.13,0.46,380.68,7,4601.1,True,0.3,87.0
+CNC-G2,Gamma,Machining,CNC,coolant_system,hydraulic,hydraulic,coolant_pump_seal,10,23.57,17.85,1.79,0.24,51.12,2,4596.15,True,0.3,87.3
+CNC-A3,Alpha,Machining,CNC,servo_drive,electrical,automation,encoder_sensor,16,20.63,16.72,1.04,0.4,515.56,6,4332.3,True,0.3,87.6
+AS-B3,Beta,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,27,48.86,40.09,1.48,0.45,55.75,2,4153.1,True,0.3,87.9
+CNC-A2,Alpha,Machining,CNC,servo_drive,software,automation,encoder_sensor,13,19.23,15.85,1.22,0.44,388.52,6,4038.3,True,0.3,88.2
+AS-B3,Beta,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,26,46.26,37.54,1.44,0.15,27.87,1,3932.1,True,0.3,88.5
+PB-A1,Alpha,Painting,Paint Booth,coolant_system,hydraulic,hydraulic,coolant_filter,8,20.51,17.78,2.22,0.24,32.72,1,3691.8,True,0.2,88.7
+PB-A1,Alpha,Painting,Paint Booth,control_panel,electrical,electrical,hmi_board,8,20.04,14.58,1.82,0.73,484.57,12,3607.2,True,0.2,88.9
+CNC-A1,Alpha,Machining,CNC,servo_drive,electrical,electrical,servo_driver_board,10,16.93,13.59,1.36,0.47,621.68,8,3555.3,True,0.2,89.1
+PB-G1,Gamma,Painting,Paint Booth,coolant_system,hydraulic,hydraulic,coolant_filter,7,20.03,17.34,2.48,0.23,31.28,2,3304.95,True,0.2,89.3
+AS-B3,Beta,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,20,38.46,28.19,1.41,0.53,276.34,5,3269.1,True,0.2,89.5
+PB-A1,Alpha,Painting,Paint Booth,filtration_system,mechanical,mechanical,paint_filter_set,8,17.89,16.52,2.06,0.17,47.41,1,3220.2,True,0.2,89.7
+PB-A2,Alpha,Painting,Paint Booth,spray_system,mechanical,mechanical,atomizer_nozzle,8,16.63,15.22,1.9,0.31,136.79,5,2993.4,True,0.2,89.9
+CNC-G1,Gamma,Machining,CNC,coolant_system,hydraulic,hydraulic,coolant_pump_seal,8,15.2,13.56,1.7,0.24,55.01,2,2964.0,True,0.2,90.1
+PB-A1,Alpha,Painting,Paint Booth,conveyor_system,mechanical,mechanical,conveyor_chain,7,16.1,13.52,1.93,0.34,191.71,5,2898.0,False,0.2,90.3
+AS-B3,Beta,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,20,34.08,28.66,1.43,0.43,91.39,3,2896.8,True,0.2,90.5
+CNC-A1,Alpha,Machining,CNC,tool_changer,mechanical,mechanical,tool_insert_set,8,13.4,11.48,1.44,0.15,73.97,2,2814.0,False,0.2,90.7
+PB-A2,Alpha,Painting,Paint Booth,conveyor_system,mechanical,mechanical,conveyor_chain,7,15.23,11.22,1.6,0.23,248.71,5,2741.4,False,0.2,90.9
+PB-A2,Alpha,Painting,Paint Booth,control_panel,electrical,electrical,hmi_board,8,15.16,14.32,1.79,0.72,532.49,11,2728.8,True,0.2,91.1
+AS-B5,Beta,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,23,31.77,24.22,1.05,0.11,28.52,2,2700.45,True,0.2,91.3
+PB-A2,Alpha,Painting,Paint Booth,filtration_system,mechanical,mechanical,paint_filter_set,8,14.94,13.98,1.75,0.13,55.6,1,2689.2,True,0.2,91.5
+CNC-A3,Alpha,Machining,CNC,coolant_system,hydraulic,hydraulic,coolant_pump_seal,11,12.15,11.07,1.01,0.14,62.94,2,2551.5,True,0.2,91.7
+AS-B4,Beta,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,18,28.55,26.74,1.49,0.59,266.08,5,2426.75,True,0.2,91.9
+AS-B4,Beta,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,17,28.4,21.27,1.25,0.13,26.0,2,2414.0,True,0.2,92.1
+AS-B2,Beta,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,18,28.11,24.56,1.36,0.57,295.04,5,2389.35,True,0.2,92.3
+CNC-G1,Gamma,Machining,CNC,tool_changer,mechanical,mechanical,tool_insert_set,6,12.11,8.78,1.46,0.17,78.69,2,2361.45,True,0.2,92.5
+AS-B2,Beta,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,17,27.78,22.69,1.33,0.37,74.15,4,2361.3,True,0.2,92.7
+AS-B3,Beta,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,15,27.34,22.79,1.52,0.35,92.69,3,2323.9,True,0.2,92.9
+AS-B2,Beta,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,17,27.32,21.49,1.26,0.39,68.72,2,2322.2,True,0.2,93.1
+AS-B5,Beta,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,20,27.25,22.02,1.1,0.32,77.34,3,2316.25,True,0.2,93.3
+CNC-A5,Alpha,Machining,CNC,coolant_system,hydraulic,hydraulic,coolant_pump_seal,8,10.84,7.5,0.94,0.16,67.56,2,2276.4,True,0.2,93.5
+CNC-A4,Alpha,Machining,CNC,spindle,mechanical,mechanical,spindle_bearing,7,10.56,9.58,1.37,0.32,250.18,7,2217.6,True,0.1,93.6
+AS-B4,Beta,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,15,25.72,21.7,1.45,0.32,102.88,3,2186.2,True,0.1,93.7
+CNC-G1,Gamma,Machining,CNC,spindle,mechanical,mechanical,spindle_bearing,6,11.21,9.99,1.67,0.35,220.74,5,2185.95,False,0.1,93.8
+PB-A2,Alpha,Painting,Paint Booth,coolant_system,hydraulic,hydraulic,coolant_filter,6,11.9,11.93,1.99,0.2,42.6,2,2142.0,True,0.1,93.9
+AS-B2,Beta,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,14,24.93,19.07,1.36,0.15,26.96,2,2119.05,True,0.1,94.0
+CNC-A5,Alpha,Machining,CNC,tool_changer,mechanical,mechanical,tool_insert_set,6,10.04,6.97,1.16,0.1,85.63,1,2108.4,True,0.1,94.1
+AS-B4,Beta,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,15,24.5,19.45,1.3,0.39,51.33,2,2082.5,True,0.1,94.2
+AS-B1,Beta,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,18,23.69,23.77,1.32,0.53,283.67,6,2013.65,True,0.1,94.3
+CNC-A2,Alpha,Machining,CNC,tool_changer,mechanical,mechanical,tool_insert_set,7,9.57,8.53,1.22,0.11,83.58,2,2009.7,True,0.1,94.4
+AS-B4,Beta,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,14,23.04,19.06,1.36,0.43,83.42,3,1958.4,True,0.1,94.5
+AS-G1,Gamma,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,19,24.0,19.41,1.02,0.32,57.51,2,1920.0,True,0.1,94.6
+CNC-A1,Alpha,Machining,CNC,spindle,mechanical,mechanical,spindle_bearing,5,9.05,6.14,1.23,0.3,285.17,6,1900.5,False,0.1,94.7
+CNC-A1,Alpha,Machining,CNC,coolant_system,hydraulic,hydraulic,coolant_pump_seal,4,8.85,5.26,1.31,0.22,48.76,2,1858.5,True,0.1,94.8
+CNC-G2,Gamma,Machining,CNC,tool_changer,mechanical,mechanical,tool_insert_set,5,9.45,9.67,1.93,0.17,87.95,2,1842.75,True,0.1,94.9
+CNC-A4,Alpha,Machining,CNC,coolant_system,hydraulic,hydraulic,coolant_pump_seal,6,8.69,9.22,1.54,0.23,51.79,1,1824.9,True,0.1,95.0
+AS-B5,Beta,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,16,20.93,18.06,1.13,0.35,57.64,2,1779.05,True,0.1,95.1
+AS-B5,Beta,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,15,20.35,16.49,1.1,0.25,99.23,3,1729.75,True,0.1,95.2
+AS-B2,Beta,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,13,20.13,17.72,1.36,0.34,111.31,3,1711.05,True,0.1,95.3
+AS-G3,Gamma,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,15,20.97,16.53,1.1,0.31,56.66,3,1677.6,True,0.1,95.4
+AS-G3,Gamma,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,16,20.88,18.12,1.13,0.12,26.29,1,1670.4,True,0.1,95.5
+AS-A5,Alpha,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,15,17.99,15.8,1.05,0.31,57.65,2,1619.1,True,0.1,95.6
+AS-G2,Gamma,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,18,19.84,15.72,0.87,0.08,26.7,2,1587.2,True,0.1,95.7
+AS-A5,Alpha,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,13,17.48,12.79,0.98,0.1,27.91,1,1573.2,True,0.1,95.8
+AS-A2,Alpha,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,20,17.26,13.89,0.69,0.21,56.55,2,1553.4,True,0.1,95.9
+AS-B1,Beta,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,12,17.98,15.05,1.25,0.34,53.59,2,1528.3,True,0.1,96.0
+AS-B1,Beta,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,13,17.73,16.0,1.23,0.12,25.07,1,1507.05,True,0.1,96.1
+AS-A7,Alpha,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,16,16.7,13.87,0.87,0.27,60.03,2,1503.0,True,0.1,96.2
+AS-A2,Alpha,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,19,16.45,12.41,0.65,0.14,97.17,3,1480.5,True,0.1,96.3
+AS-G2,Gamma,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,17,18.46,14.11,0.83,0.27,66.14,1,1476.8,True,0.1,96.4
+CNC-A3,Alpha,Machining,CNC,spindle,mechanical,mechanical,spindle_bearing,6,6.94,6.3,1.05,0.2,277.23,4,1457.4,True,0.1,96.5
+CNC-A2,Alpha,Machining,CNC,spindle,mechanical,mechanical,spindle_bearing,4,6.84,4.34,1.08,0.24,250.25,5,1436.4,True,0.1,96.6
+AS-B1,Beta,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,12,16.41,15.34,1.28,0.39,91.44,3,1394.85,True,0.1,96.7
+AS-G3,Gamma,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,12,16.8,11.38,0.95,0.37,321.37,5,1344.0,True,0.1,96.8
+AS-A3,Alpha,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,13,14.69,12.5,0.96,0.21,104.96,3,1322.1,True,0.1,96.9
+AS-B5,Beta,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,11,15.13,10.44,0.95,0.4,276.76,5,1286.05,True,0.1,97.0
+AS-G1,Gamma,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,14,16.01,14.85,1.06,0.11,23.1,2,1280.8,True,0.1,97.1
+AS-A3,Alpha,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,12,13.47,10.23,0.85,0.1,31.88,2,1212.3,True,0.1,97.2
+AS-A4,Alpha,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,11,13.1,7.74,0.7,0.14,96.16,3,1179.0,True,0.1,97.3
+AS-A2,Alpha,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,16,12.97,10.47,0.65,0.26,303.26,4,1167.3,True,0.1,97.4
+AS-G3,Gamma,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,12,14.52,12.78,1.06,0.24,109.46,3,1161.6,True,0.1,97.5
+AS-B1,Beta,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,10,13.45,10.92,1.09,0.24,99.83,2,1143.25,True,0.1,97.6
+AS-A6,Alpha,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,15,12.65,10.94,0.73,0.07,28.19,1,1138.5,True,0.1,97.7
+AS-G2,Gamma,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,14,14.17,13.33,0.95,0.27,85.92,4,1133.6,True,0.1,97.8
+AS-G1,Gamma,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,11,13.87,10.07,0.92,0.21,98.51,2,1109.6,True,0.1,97.9
+AS-A8,Alpha,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,12,12.24,10.16,0.85,0.34,344.85,4,1101.6,True,0.1,98.0
+AS-G1,Gamma,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,12,13.41,11.29,0.94,0.28,86.8,4,1072.8,True,0.1,98.1
+AS-A5,Alpha,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,9,11.76,8.81,0.98,0.3,96.43,3,1058.4,True,0.1,98.2
+AS-A4,Alpha,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,12,11.67,10.77,0.9,0.37,280.11,5,1050.3,True,0.1,98.3
+AS-A8,Alpha,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,11,11.25,8.47,0.77,0.16,105.26,3,1012.5,True,0.1,98.4
+AS-A7,Alpha,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,10,11.15,8.88,0.89,0.27,88.28,3,1003.5,True,0.1,98.5
+AS-A4,Alpha,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,10,10.9,7.37,0.74,0.22,54.82,2,981.0,True,0.1,98.6
+CNC-A2,Alpha,Machining,CNC,coolant_system,hydraulic,hydraulic,coolant_pump_seal,3,4.51,2.91,0.97,0.15,43.73,1,947.1,False,0.1,98.7
+CNC-A4,Alpha,Machining,CNC,tool_changer,mechanical,mechanical,tool_insert_set,2,4.49,2.72,1.36,0.15,107.44,2,942.9,False,0.1,98.8
+AS-A5,Alpha,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,9,10.46,8.81,0.98,0.23,113.88,3,941.4,True,0.1,98.9
+AS-A7,Alpha,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,9,10.2,7.51,0.83,0.2,88.97,2,918.0,True,0.1,99.0
+AS-A3,Alpha,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,10,10.11,8.87,0.89,0.25,71.47,3,909.9,True,0.1,99.1
+AS-A4,Alpha,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,10,9.57,7.09,0.71,0.21,91.58,3,861.3,True,0.1,99.2
+AS-A6,Alpha,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,11,9.46,7.64,0.69,0.16,103.01,3,851.4,True,0.1,99.3
+AS-A8,Alpha,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,10,9.4,8.32,0.83,0.29,89.51,3,846.0,True,0.1,99.4
+AS-A2,Alpha,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,12,9.26,8.73,0.73,0.07,29.19,2,833.4,True,0.1,99.5
+AS-G2,Gamma,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,9,10.38,8.21,0.91,0.22,94.99,2,830.4,True,0.1,99.6
+AS-A1,Alpha,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,10,9.18,8.77,0.88,0.08,26.48,1,826.2,True,0.1,99.7
+AS-A1,Alpha,Assembly,Assembly Station,fixture_system,mechanical,mechanical,fixture_pin_set,10,9.13,7.77,0.78,0.18,89.83,2,821.7,True,0.1,99.8
+AS-A6,Alpha,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,10,8.9,5.92,0.59,0.22,277.86,5,801.0,True,0.1,99.9
+AS-A4,Alpha,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,10,8.66,8.04,0.8,0.08,25.67,1,779.4,True,0.1,100.0
+CNC-A5,Alpha,Machining,CNC,spindle,mechanical,mechanical,spindle_bearing,3,3.71,3.89,1.3,0.27,285.42,7,779.1,False,0.1,100.1
+AS-G1,Gamma,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,7,9.08,7.27,1.04,0.36,315.72,6,726.4,True,0.0,100.1
+AS-A5,Alpha,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,8,7.77,8.25,1.03,0.4,263.91,6,699.3,True,0.0,100.1
+AS-A7,Alpha,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,8,7.67,7.68,0.96,0.37,335.45,4,690.3,True,0.0,100.1
+AS-A8,Alpha,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,8,7.53,5.54,0.69,0.24,47.73,2,677.7,True,0.0,100.1
+AS-A1,Alpha,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,8,7.53,6.14,0.77,0.23,66.46,3,677.7,True,0.0,100.1
+AS-A3,Alpha,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,7,7.5,5.95,0.85,0.27,63.74,2,675.0,True,0.0,100.1
+AS-A6,Alpha,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,9,7.3,6.86,0.76,0.25,67.08,3,657.0,True,0.0,100.1
+CNC-A3,Alpha,Machining,CNC,tool_changer,mechanical,mechanical,tool_insert_set,3,2.88,2.36,0.79,0.07,42.27,2,604.8,False,0.0,100.1
+AS-A7,Alpha,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,7,6.64,6.34,0.91,0.09,25.55,2,597.6,True,0.0,100.1
+AS-A6,Alpha,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,7,6.61,4.74,0.68,0.2,84.39,3,594.9,True,0.0,100.1
+AS-A2,Alpha,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,8,6.39,5.46,0.68,0.22,88.27,3,575.1,True,0.0,100.1
+AS-G3,Gamma,Assembly,Assembly Station,sensor_package,electrical,electrical,proximity_sensor,5,7.14,5.48,1.1,0.29,89.38,4,571.2,False,0.0,100.1
+AS-A1,Alpha,Assembly,Assembly Station,electrical_panel,electrical,electrical,circuit_breaker,6,6.02,4.17,0.69,0.19,65.48,1,541.8,True,0.0,100.1
+AS-A1,Alpha,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,5,4.6,4.24,0.85,0.35,263.89,3,414.0,False,0.0,100.1
+AS-G2,Gamma,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,5,4.78,3.61,0.72,0.29,317.02,6,382.4,True,0.0,100.1
+AS-A8,Alpha,Assembly,Assembly Station,pneumatic_system,hydraulic,hydraulic,pneumatic_fitting,4,4.0,2.9,0.72,0.09,32.3,2,360.0,False,0.0,100.1
+AS-A3,Alpha,Assembly,Assembly Station,torque_system,software,automation,torque_transducer,3,3.92,2.66,0.89,0.38,327.34,6,352.8,False,0.0,100.1

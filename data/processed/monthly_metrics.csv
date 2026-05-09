@@ -1,0 +1,561 @@
+year_month,machine_id,vsm,area,machine_type,failures_count,downtime_hrs,mtbf_hrs,mttr_hrs,availability_pct,downtime_cost_per_hr,monthly_downtime_cost,health_score,health_status
+2024-01,CNC-A1,Alpha,Machining,CNC,1,2.16,741.8,1.54,99.71,210.0,453.6,98.9,Healthy
+2024-02,CNC-A1,Alpha,Machining,CNC,4,6.57,172.4,1.39,99.06,210.0,1379.7,57.7,Monitor
+2024-03,CNC-A1,Alpha,Machining,CNC,1,1.15,742.9,1.17,99.85,210.0,241.5,99.0,Healthy
+2024-04,CNC-A1,Alpha,Machining,CNC,2,4.09,358.0,0.89,99.43,210.0,858.9,72.1,Healthy
+2024-05,CNC-A1,Alpha,Machining,CNC,1,1.94,742.1,1.35,99.74,210.0,407.4,98.9,Healthy
+2024-06,CNC-A1,Alpha,Machining,CNC,3,6.05,238.0,1.4,99.16,210.0,1270.5,63.0,Monitor
+2024-07,CNC-A1,Alpha,Machining,CNC,1,1.54,742.5,1.9,99.79,210.0,323.4,98.9,Healthy
+2024-08,CNC-A1,Alpha,Machining,CNC,3,6.04,246.0,1.27,99.19,210.0,1268.4,63.6,Monitor
+2024-09,CNC-A1,Alpha,Machining,CNC,0,0.0,720.0,0.0,100.0,210.0,0.0,98.4,Healthy
+2024-10,CNC-A1,Alpha,Machining,CNC,0,0.0,744.0,0.0,100.0,210.0,0.0,100.0,Healthy
+2024-11,CNC-A1,Alpha,Machining,CNC,2,2.35,358.8,1.51,99.67,210.0,493.5,72.2,Healthy
+2024-12,CNC-A1,Alpha,Machining,CNC,1,2.06,741.9,1.32,99.72,210.0,432.6,98.9,Healthy
+2025-01,CNC-A1,Alpha,Machining,CNC,2,3.67,370.2,1.3,99.51,210.0,770.7,72.9,Healthy
+2025-02,CNC-A1,Alpha,Machining,CNC,1,1.98,670.0,1.46,99.71,210.0,415.8,94.0,Healthy
+2025-03,CNC-A1,Alpha,Machining,CNC,1,2.06,741.9,1.44,99.72,210.0,432.6,98.9,Healthy
+2025-04,CNC-A1,Alpha,Machining,CNC,4,6.57,178.4,1.33,99.09,210.0,1379.7,58.1,Monitor
+2024-01,CNC-A2,Alpha,Machining,CNC,4,6.26,184.4,1.2,99.16,210.0,1314.6,58.5,Monitor
+2024-02,CNC-A2,Alpha,Machining,CNC,0,0.0,696.0,0.0,100.0,210.0,0.0,96.8,Healthy
+2024-03,CNC-A2,Alpha,Machining,CNC,0,0.0,744.0,0.0,100.0,210.0,0.0,100.0,Healthy
+2024-04,CNC-A2,Alpha,Machining,CNC,1,1.93,718.1,0.66,99.73,210.0,405.3,97.3,Healthy
+2024-05,CNC-A2,Alpha,Machining,CNC,6,8.67,122.6,1.11,98.83,210.0,1820.7,52.4,Monitor
+2024-06,CNC-A2,Alpha,Machining,CNC,1,1.33,718.7,1.37,99.82,210.0,279.3,97.3,Healthy
+2024-07,CNC-A2,Alpha,Machining,CNC,4,6.21,184.4,1.23,99.17,210.0,1304.1,58.5,Monitor
+2024-08,CNC-A2,Alpha,Machining,CNC,2,2.57,370.7,1.17,99.65,210.0,539.7,73.0,Healthy
+2024-09,CNC-A2,Alpha,Machining,CNC,0,0.0,720.0,0.0,100.0,210.0,0.0,98.4,Healthy
+2024-10,CNC-A2,Alpha,Machining,CNC,1,1.65,742.4,1.42,99.78,210.0,346.5,98.9,Healthy
+2024-11,CNC-A2,Alpha,Machining,CNC,3,4.47,238.5,1.4,99.38,210.0,938.7,63.1,Monitor
+2024-12,CNC-A2,Alpha,Machining,CNC,0,0.0,744.0,0.0,100.0,210.0,0.0,100.0,Healthy
+2025-01,CNC-A2,Alpha,Machining,CNC,1,1.72,742.3,0.74,99.77,210.0,361.2,98.9,Healthy
+2025-02,CNC-A2,Alpha,Machining,CNC,1,1.87,670.1,0.87,99.72,210.0,392.7,94.0,Healthy
+2025-03,CNC-A2,Alpha,Machining,CNC,3,3.47,246.8,1.22,99.53,210.0,728.7,63.7,Monitor
+2025-04,CNC-A2,Alpha,Machining,CNC,0,0.0,720.0,0.0,100.0,210.0,0.0,98.4,Healthy
+2024-01,CNC-A3,Alpha,Machining,CNC,4,4.11,185.0,0.97,99.45,210.0,863.1,58.6,Monitor
+2024-02,CNC-A3,Alpha,Machining,CNC,2,1.78,347.1,1.17,99.74,210.0,373.8,71.4,Healthy
+2024-03,CNC-A3,Alpha,Machining,CNC,1,1.13,742.9,1.13,99.85,210.0,237.3,99.0,Healthy
+2024-04,CNC-A3,Alpha,Machining,CNC,3,4.41,238.5,1.11,99.39,210.0,926.1,63.1,Monitor
+2024-05,CNC-A3,Alpha,Machining,CNC,2,1.74,371.1,0.73,99.77,210.0,365.4,73.1,Healthy
+2024-06,CNC-A3,Alpha,Machining,CNC,2,1.93,359.0,0.92,99.73,210.0,405.3,72.2,Healthy
+2024-07,CNC-A3,Alpha,Machining,CNC,1,1.45,742.5,0.87,99.81,210.0,304.5,98.9,Healthy
+2024-08,CNC-A3,Alpha,Machining,CNC,1,0.72,743.3,1.1,99.9,210.0,151.2,99.0,Healthy
+2024-09,CNC-A3,Alpha,Machining,CNC,5,5.92,142.8,1.0,99.18,210.0,1243.2,54.8,Monitor
+2024-10,CNC-A3,Alpha,Machining,CNC,0,0.0,744.0,0.0,100.0,210.0,0.0,100.0,Healthy
+2024-11,CNC-A3,Alpha,Machining,CNC,3,3.78,238.7,1.08,99.48,210.0,793.8,63.2,Monitor
+2024-12,CNC-A3,Alpha,Machining,CNC,5,7.07,147.4,1.1,99.05,210.0,1484.7,55.1,Monitor
+2025-01,CNC-A3,Alpha,Machining,CNC,3,4.06,246.6,0.91,99.45,210.0,852.6,63.7,Monitor
+2025-02,CNC-A3,Alpha,Machining,CNC,1,1.43,670.6,0.97,99.79,210.0,300.3,94.1,Healthy
+2025-03,CNC-A3,Alpha,Machining,CNC,2,1.78,371.1,0.98,99.76,210.0,373.8,73.0,Healthy
+2025-04,CNC-A3,Alpha,Machining,CNC,1,1.29,718.7,1.13,99.82,210.0,270.9,97.3,Healthy
+2024-01,CNC-A4,Alpha,Machining,CNC,3,5.83,246.1,1.56,99.22,210.0,1224.3,63.6,Monitor
+2024-02,CNC-A4,Alpha,Machining,CNC,4,5.28,172.7,1.62,99.24,210.0,1108.8,57.7,Monitor
+2024-03,CNC-A4,Alpha,Machining,CNC,0,0.0,744.0,0.0,100.0,210.0,0.0,100.0,Healthy
+2024-04,CNC-A4,Alpha,Machining,CNC,3,4.44,238.5,1.42,99.38,210.0,932.4,63.1,Monitor
+2024-05,CNC-A4,Alpha,Machining,CNC,2,3.0,370.5,1.22,99.6,210.0,630.0,73.0,Healthy
+2024-06,CNC-A4,Alpha,Machining,CNC,1,2.04,718.0,1.39,99.72,210.0,428.4,97.3,Healthy
+2024-07,CNC-A4,Alpha,Machining,CNC,5,7.5,147.3,1.51,98.99,210.0,1575.0,55.1,Monitor
+2024-08,CNC-A4,Alpha,Machining,CNC,4,6.75,184.3,1.19,99.09,210.0,1417.5,58.5,Monitor
+2024-09,CNC-A4,Alpha,Machining,CNC,2,3.99,358.0,1.11,99.45,210.0,837.9,72.1,Healthy
+2024-10,CNC-A4,Alpha,Machining,CNC,4,7.01,184.2,1.33,99.06,210.0,1472.1,58.5,Monitor
+2024-11,CNC-A4,Alpha,Machining,CNC,4,6.02,178.5,1.45,99.16,210.0,1264.2,58.1,Monitor
+2024-12,CNC-A4,Alpha,Machining,CNC,1,1.91,742.1,1.2,99.74,210.0,401.1,98.9,Healthy
+2025-01,CNC-A4,Alpha,Machining,CNC,2,3.3,370.4,1.45,99.56,210.0,693.0,72.9,Healthy
+2025-02,CNC-A4,Alpha,Machining,CNC,0,0.0,672.0,0.0,100.0,210.0,0.0,95.2,Healthy
+2025-03,CNC-A4,Alpha,Machining,CNC,2,3.74,370.1,1.46,99.5,210.0,785.4,72.9,Healthy
+2025-04,CNC-A4,Alpha,Machining,CNC,3,3.59,238.8,1.25,99.5,210.0,753.9,63.2,Monitor
+2024-01,CNC-A5,Alpha,Machining,CNC,1,1.38,742.6,1.06,99.81,210.0,289.8,98.9,Healthy
+2024-02,CNC-A5,Alpha,Machining,CNC,3,4.12,230.6,1.2,99.41,210.0,865.2,62.6,Monitor
+2024-03,CNC-A5,Alpha,Machining,CNC,2,1.8,371.1,1.25,99.76,210.0,378.0,73.0,Healthy
+2024-04,CNC-A5,Alpha,Machining,CNC,3,3.41,238.9,1.22,99.53,210.0,716.1,63.2,Monitor
+2024-05,CNC-A5,Alpha,Machining,CNC,1,1.48,742.5,0.52,99.8,210.0,310.8,98.9,Healthy
+2024-06,CNC-A5,Alpha,Machining,CNC,3,3.86,238.7,1.13,99.46,210.0,810.6,63.2,Monitor
+2024-07,CNC-A5,Alpha,Machining,CNC,1,1.54,742.5,0.95,99.79,210.0,323.4,98.9,Healthy
+2024-08,CNC-A5,Alpha,Machining,CNC,1,2.13,741.9,0.9,99.71,210.0,447.3,98.9,Healthy
+2024-09,CNC-A5,Alpha,Machining,CNC,0,0.0,720.0,0.0,100.0,210.0,0.0,98.4,Healthy
+2024-10,CNC-A5,Alpha,Machining,CNC,6,8.59,122.6,1.14,98.85,210.0,1803.9,52.4,Monitor
+2024-11,CNC-A5,Alpha,Machining,CNC,3,4.87,238.4,1.0,99.32,210.0,1022.7,63.1,Monitor
+2024-12,CNC-A5,Alpha,Machining,CNC,2,2.94,370.5,0.97,99.6,210.0,617.4,73.0,Healthy
+2025-01,CNC-A5,Alpha,Machining,CNC,2,2.97,370.5,1.1,99.6,210.0,623.7,73.0,Healthy
+2025-02,CNC-A5,Alpha,Machining,CNC,2,2.12,334.9,1.17,99.68,210.0,445.2,70.6,Healthy
+2025-03,CNC-A5,Alpha,Machining,CNC,2,3.59,370.2,1.2,99.52,210.0,753.9,72.9,Healthy
+2025-04,CNC-A5,Alpha,Machining,CNC,2,1.7,359.1,1.07,99.76,210.0,357.0,72.2,Healthy
+2024-01,PB-A1,Alpha,Painting,Paint Booth,1,2.48,741.5,1.81,99.67,180.0,446.4,98.8,Healthy
+2024-02,PB-A1,Alpha,Painting,Paint Booth,2,3.54,346.2,2.03,99.49,180.0,637.2,71.3,Healthy
+2024-03,PB-A1,Alpha,Painting,Paint Booth,1,2.63,741.4,2.1,99.65,180.0,473.4,98.8,Healthy
+2024-04,PB-A1,Alpha,Painting,Paint Booth,4,9.38,177.7,1.77,98.7,180.0,1688.4,57.9,Monitor
+2024-05,PB-A1,Alpha,Painting,Paint Booth,2,4.09,370.0,1.75,99.45,180.0,736.2,72.9,Healthy
+2024-06,PB-A1,Alpha,Painting,Paint Booth,7,16.54,100.5,2.16,97.7,180.0,2977.2,49.7,Monitor
+2024-07,PB-A1,Alpha,Painting,Paint Booth,4,10.81,183.3,2.04,98.55,180.0,1945.8,58.2,Monitor
+2024-08,PB-A1,Alpha,Painting,Paint Booth,3,8.38,245.2,2.24,98.87,180.0,1508.4,63.4,Monitor
+2024-09,PB-A1,Alpha,Painting,Paint Booth,3,6.25,237.9,1.9,99.13,180.0,1125.0,63.0,Monitor
+2024-10,PB-A1,Alpha,Painting,Paint Booth,3,8.17,245.3,1.62,98.9,180.0,1470.6,63.4,Monitor
+2024-11,PB-A1,Alpha,Painting,Paint Booth,1,3.31,716.7,2.15,99.54,180.0,595.8,97.1,Healthy
+2024-12,PB-A1,Alpha,Painting,Paint Booth,4,8.28,183.9,2.08,98.89,180.0,1490.4,58.4,Monitor
+2025-01,PB-A1,Alpha,Painting,Paint Booth,5,11.05,146.6,2.18,98.51,180.0,1989.0,54.9,Monitor
+2025-02,PB-A1,Alpha,Painting,Paint Booth,0,0.0,672.0,0.0,100.0,180.0,0.0,95.2,Healthy
+2025-03,PB-A1,Alpha,Painting,Paint Booth,2,5.56,369.2,1.88,99.25,180.0,1000.8,72.8,Healthy
+2025-04,PB-A1,Alpha,Painting,Paint Booth,2,6.01,357.0,2.17,99.17,180.0,1081.8,71.9,Healthy
+2024-01,PB-A2,Alpha,Painting,Paint Booth,0,0.0,744.0,0.0,100.0,180.0,0.0,100.0,Healthy
+2024-02,PB-A2,Alpha,Painting,Paint Booth,5,12.61,136.7,1.83,98.19,180.0,2269.8,54.1,Monitor
+2024-03,PB-A2,Alpha,Painting,Paint Booth,2,3.35,370.3,1.71,99.55,180.0,603.0,72.9,Healthy
+2024-04,PB-A2,Alpha,Painting,Paint Booth,0,0.0,720.0,0.0,100.0,180.0,0.0,98.4,Healthy
+2024-05,PB-A2,Alpha,Painting,Paint Booth,5,10.55,146.7,1.86,98.58,180.0,1899.0,54.9,Monitor
+2024-06,PB-A2,Alpha,Painting,Paint Booth,2,4.31,357.8,2.1,99.4,180.0,775.8,72.0,Healthy
+2024-07,PB-A2,Alpha,Painting,Paint Booth,2,2.59,370.7,1.88,99.65,180.0,466.2,73.0,Healthy
+2024-08,PB-A2,Alpha,Painting,Paint Booth,3,3.81,246.7,1.94,99.49,180.0,685.8,63.7,Monitor
+2024-09,PB-A2,Alpha,Painting,Paint Booth,0,0.0,720.0,0.0,100.0,180.0,0.0,98.4,Healthy
+2024-10,PB-A2,Alpha,Painting,Paint Booth,4,7.36,184.2,1.83,99.01,180.0,1324.8,58.4,Monitor
+2024-11,PB-A2,Alpha,Painting,Paint Booth,5,11.1,141.8,1.59,98.46,180.0,1998.0,54.5,Monitor
+2024-12,PB-A2,Alpha,Painting,Paint Booth,0,0.0,744.0,0.0,100.0,180.0,0.0,100.0,Healthy
+2025-01,PB-A2,Alpha,Painting,Paint Booth,2,2.91,370.5,1.77,99.61,180.0,523.8,73.0,Healthy
+2025-02,PB-A2,Alpha,Painting,Paint Booth,1,2.03,670.0,1.4,99.7,180.0,365.4,94.0,Healthy
+2025-03,PB-A2,Alpha,Painting,Paint Booth,1,1.79,742.2,1.49,99.76,180.0,322.2,98.9,Healthy
+2025-04,PB-A2,Alpha,Painting,Paint Booth,5,11.45,141.7,1.86,98.41,180.0,2061.0,54.5,Monitor
+2024-01,CF-A1,Alpha,Painting,Curing Furnace,3,10.14,244.6,3.58,98.64,250.0,2535.0,63.3,Monitor
+2024-02,CF-A1,Alpha,Painting,Curing Furnace,3,13.84,227.4,3.4,98.01,250.0,3460.0,62.0,Monitor
+2024-03,CF-A1,Alpha,Painting,Curing Furnace,7,32.91,101.6,3.43,95.58,250.0,8227.5,49.1,Monitor
+2024-04,CF-A1,Alpha,Painting,Curing Furnace,1,3.21,716.8,2.98,99.55,250.0,802.5,97.1,Healthy
+2024-05,CF-A1,Alpha,Painting,Curing Furnace,1,4.14,739.9,2.91,99.44,250.0,1035.0,98.6,Healthy
+2024-06,CF-A1,Alpha,Painting,Curing Furnace,2,9.14,355.4,3.76,98.73,250.0,2285.0,71.7,Healthy
+2024-07,CF-A1,Alpha,Painting,Curing Furnace,4,15.91,182.0,3.52,97.86,250.0,3977.5,58.0,Monitor
+2024-08,CF-A1,Alpha,Painting,Curing Furnace,3,10.91,244.4,4.41,98.53,250.0,2727.5,63.3,Monitor
+2024-09,CF-A1,Alpha,Painting,Curing Furnace,4,12.09,177.0,3.64,98.32,250.0,3022.5,57.8,Monitor
+2024-10,CF-A1,Alpha,Painting,Curing Furnace,3,13.75,243.4,3.16,98.15,250.0,3437.5,63.1,Monitor
+2024-11,CF-A1,Alpha,Painting,Curing Furnace,1,5.26,714.7,4.9,99.27,250.0,1315.0,96.9,Healthy
+2024-12,CF-A1,Alpha,Painting,Curing Furnace,3,16.31,242.6,3.36,97.81,250.0,4077.5,62.9,Monitor
+2025-01,CF-A1,Alpha,Painting,Curing Furnace,2,10.08,367.0,3.33,98.65,250.0,2520.0,72.4,Healthy
+2025-02,CF-A1,Alpha,Painting,Curing Furnace,1,5.23,666.8,3.53,99.22,250.0,1307.5,93.7,Healthy
+2025-03,CF-A1,Alpha,Painting,Curing Furnace,4,17.32,181.7,3.55,97.67,250.0,4330.0,57.9,Monitor
+2025-04,CF-A1,Alpha,Painting,Curing Furnace,4,17.55,175.6,3.75,97.56,250.0,4387.5,57.4,Monitor
+2024-01,AS-A1,Alpha,Assembly,Assembly Station,1,0.9,743.1,0.78,99.88,90.0,81.0,99.0,Healthy
+2024-02,AS-A1,Alpha,Assembly,Assembly Station,1,0.77,695.2,0.82,99.89,90.0,69.3,95.8,Healthy
+2024-03,AS-A1,Alpha,Assembly,Assembly Station,0,0.0,744.0,0.0,100.0,90.0,0.0,100.0,Healthy
+2024-04,AS-A1,Alpha,Assembly,Assembly Station,1,0.6,719.4,1.02,99.92,90.0,54.0,97.4,Healthy
+2024-05,AS-A1,Alpha,Assembly,Assembly Station,4,4.29,184.9,0.93,99.42,90.0,386.1,58.6,Monitor
+2024-06,AS-A1,Alpha,Assembly,Assembly Station,4,3.15,179.2,0.71,99.56,90.0,283.5,58.3,Monitor
+2024-07,AS-A1,Alpha,Assembly,Assembly Station,2,1.88,371.1,0.72,99.75,90.0,169.2,73.0,Healthy
+2024-08,AS-A1,Alpha,Assembly,Assembly Station,2,1.96,371.0,0.85,99.74,90.0,176.4,73.0,Healthy
+2024-09,AS-A1,Alpha,Assembly,Assembly Station,4,3.87,179.0,0.76,99.46,90.0,348.3,58.2,Monitor
+2024-10,AS-A1,Alpha,Assembly,Assembly Station,5,5.47,147.7,0.83,99.26,90.0,492.3,55.2,Monitor
+2024-11,AS-A1,Alpha,Assembly,Assembly Station,3,2.65,239.1,0.72,99.63,90.0,238.5,63.2,Monitor
+2024-12,AS-A1,Alpha,Assembly,Assembly Station,7,6.69,105.3,0.86,99.1,90.0,602.1,50.4,Monitor
+2025-01,AS-A1,Alpha,Assembly,Assembly Station,1,0.92,743.1,0.77,99.88,90.0,82.8,99.0,Healthy
+2025-02,AS-A1,Alpha,Assembly,Assembly Station,2,1.25,335.4,0.64,99.81,90.0,112.5,70.7,Healthy
+2025-03,AS-A1,Alpha,Assembly,Assembly Station,1,0.85,743.1,0.61,99.89,90.0,76.5,99.0,Healthy
+2025-04,AS-A1,Alpha,Assembly,Assembly Station,1,1.21,718.8,0.68,99.83,90.0,108.9,97.3,Healthy
+2024-01,AS-A2,Alpha,Assembly,Assembly Station,5,4.35,147.9,0.58,99.42,90.0,391.5,55.2,Monitor
+2024-02,AS-A2,Alpha,Assembly,Assembly Station,8,6.15,86.2,0.71,99.12,90.0,553.5,48.3,Monitor
+2024-03,AS-A2,Alpha,Assembly,Assembly Station,5,3.31,148.1,0.61,99.56,90.0,297.9,55.3,Monitor
+2024-04,AS-A2,Alpha,Assembly,Assembly Station,4,3.95,179.0,0.7,99.45,90.0,355.5,58.2,Monitor
+2024-05,AS-A2,Alpha,Assembly,Assembly Station,2,1.19,371.4,0.73,99.84,90.0,107.1,73.1,Healthy
+2024-06,AS-A2,Alpha,Assembly,Assembly Station,6,5.02,119.2,0.74,99.3,90.0,451.8,52.3,Monitor
+2024-07,AS-A2,Alpha,Assembly,Assembly Station,5,3.66,148.1,0.67,99.51,90.0,329.4,55.3,Monitor
+2024-08,AS-A2,Alpha,Assembly,Assembly Station,7,5.93,105.4,0.79,99.2,90.0,533.7,50.5,Monitor
+2024-09,AS-A2,Alpha,Assembly,Assembly Station,5,3.91,143.2,0.78,99.46,90.0,351.9,54.9,Monitor
+2024-10,AS-A2,Alpha,Assembly,Assembly Station,1,0.93,743.1,0.53,99.88,90.0,83.7,99.0,Healthy
+2024-11,AS-A2,Alpha,Assembly,Assembly Station,1,0.77,719.2,0.88,99.89,90.0,69.3,97.4,Healthy
+2024-12,AS-A2,Alpha,Assembly,Assembly Station,3,2.97,247.0,0.59,99.6,90.0,267.3,63.8,Monitor
+2025-01,AS-A2,Alpha,Assembly,Assembly Station,9,7.78,81.8,0.61,98.95,90.0,700.2,47.0,Monitor
+2025-02,AS-A2,Alpha,Assembly,Assembly Station,7,6.67,95.0,0.69,99.01,90.0,600.3,49.7,Monitor
+2025-03,AS-A2,Alpha,Assembly,Assembly Station,6,5.13,123.1,0.59,99.31,90.0,461.7,52.6,Monitor
+2025-04,AS-A2,Alpha,Assembly,Assembly Station,1,0.61,719.4,0.83,99.92,90.0,54.9,97.4,Healthy
+2024-01,AS-A3,Alpha,Assembly,Assembly Station,3,2.98,247.0,1.07,99.6,90.0,268.2,63.8,Monitor
+2024-02,AS-A3,Alpha,Assembly,Assembly Station,4,5.84,172.5,0.86,99.16,90.0,525.6,57.7,Monitor
+2024-03,AS-A3,Alpha,Assembly,Assembly Station,1,1.16,742.8,0.9,99.84,90.0,104.4,99.0,Healthy
+2024-04,AS-A3,Alpha,Assembly,Assembly Station,3,3.59,238.8,0.81,99.5,90.0,323.1,63.2,Monitor
+2024-05,AS-A3,Alpha,Assembly,Assembly Station,3,2.94,247.0,0.86,99.6,90.0,264.6,63.8,Monitor
+2024-06,AS-A3,Alpha,Assembly,Assembly Station,2,2.47,358.8,0.84,99.66,90.0,222.3,72.2,Healthy
+2024-07,AS-A3,Alpha,Assembly,Assembly Station,1,1.23,742.8,0.88,99.83,90.0,110.7,99.0,Healthy
+2024-08,AS-A3,Alpha,Assembly,Assembly Station,2,2.07,371.0,1.01,99.72,90.0,186.3,73.0,Healthy
+2024-09,AS-A3,Alpha,Assembly,Assembly Station,1,1.1,718.9,1.04,99.85,90.0,99.0,97.4,Healthy
+2024-10,AS-A3,Alpha,Assembly,Assembly Station,5,4.98,147.8,1.09,99.33,90.0,448.2,55.2,Monitor
+2024-11,AS-A3,Alpha,Assembly,Assembly Station,4,3.73,179.1,0.75,99.48,90.0,335.7,58.2,Monitor
+2024-12,AS-A3,Alpha,Assembly,Assembly Station,2,2.51,370.7,1.0,99.66,90.0,225.9,73.0,Healthy
+2025-01,AS-A3,Alpha,Assembly,Assembly Station,2,2.42,370.8,0.93,99.67,90.0,217.8,73.0,Healthy
+2025-02,AS-A3,Alpha,Assembly,Assembly Station,5,4.44,133.5,0.86,99.34,90.0,399.6,54.2,Monitor
+2025-03,AS-A3,Alpha,Assembly,Assembly Station,5,6.18,147.6,0.75,99.17,90.0,556.2,55.1,Monitor
+2025-04,AS-A3,Alpha,Assembly,Assembly Station,2,2.05,359.0,0.83,99.72,90.0,184.5,72.2,Healthy
+2024-01,AS-A4,Alpha,Assembly,Assembly Station,1,0.64,743.4,0.89,99.91,90.0,57.6,99.0,Healthy
+2024-02,AS-A4,Alpha,Assembly,Assembly Station,2,1.68,347.2,0.59,99.76,90.0,151.2,71.4,Healthy
+2024-03,AS-A4,Alpha,Assembly,Assembly Station,4,4.31,184.9,0.79,99.42,90.0,387.9,58.6,Monitor
+2024-04,AS-A4,Alpha,Assembly,Assembly Station,4,4.75,178.8,0.68,99.34,90.0,427.5,58.2,Monitor
+2024-05,AS-A4,Alpha,Assembly,Assembly Station,0,0.0,744.0,0.0,100.0,90.0,0.0,100.0,Healthy
+2024-06,AS-A4,Alpha,Assembly,Assembly Station,8,8.02,89.0,0.86,98.89,90.0,721.8,48.4,Monitor
+2024-07,AS-A4,Alpha,Assembly,Assembly Station,5,4.96,147.8,0.74,99.33,90.0,446.4,55.2,Monitor
+2024-08,AS-A4,Alpha,Assembly,Assembly Station,3,3.11,247.0,0.72,99.58,90.0,279.9,63.7,Monitor
+2024-09,AS-A4,Alpha,Assembly,Assembly Station,2,2.47,358.8,0.7,99.66,90.0,222.3,72.2,Healthy
+2024-10,AS-A4,Alpha,Assembly,Assembly Station,3,2.83,247.1,0.7,99.62,90.0,254.7,63.8,Monitor
+2024-11,AS-A4,Alpha,Assembly,Assembly Station,2,2.09,359.0,0.91,99.71,90.0,188.1,72.2,Healthy
+2024-12,AS-A4,Alpha,Assembly,Assembly Station,4,4.9,184.8,0.74,99.34,90.0,441.0,58.6,Monitor
+2025-01,AS-A4,Alpha,Assembly,Assembly Station,4,3.95,185.0,0.75,99.47,90.0,355.5,58.6,Monitor
+2025-02,AS-A4,Alpha,Assembly,Assembly Station,3,2.59,223.1,0.71,99.61,90.0,233.1,62.1,Monitor
+2025-03,AS-A4,Alpha,Assembly,Assembly Station,3,3.16,246.9,0.82,99.58,90.0,284.4,63.7,Monitor
+2025-04,AS-A4,Alpha,Assembly,Assembly Station,5,4.44,143.1,0.88,99.38,90.0,399.6,54.9,Monitor
+2024-01,AS-A5,Alpha,Assembly,Assembly Station,6,7.14,122.8,1.07,99.04,90.0,642.6,52.5,Monitor
+2024-02,AS-A5,Alpha,Assembly,Assembly Station,3,3.07,231.0,0.91,99.56,90.0,276.3,62.7,Monitor
+2024-03,AS-A5,Alpha,Assembly,Assembly Station,5,6.78,147.4,1.14,99.09,90.0,610.2,55.1,Monitor
+2024-04,AS-A5,Alpha,Assembly,Assembly Station,7,8.51,101.6,1.02,98.82,90.0,765.9,50.1,Monitor
+2024-05,AS-A5,Alpha,Assembly,Assembly Station,3,3.41,246.9,1.15,99.54,90.0,306.9,63.7,Monitor
+2024-06,AS-A5,Alpha,Assembly,Assembly Station,3,4.42,238.5,0.95,99.39,90.0,397.8,63.1,Monitor
+2024-07,AS-A5,Alpha,Assembly,Assembly Station,3,3.66,246.8,0.92,99.51,90.0,329.4,63.7,Monitor
+2024-08,AS-A5,Alpha,Assembly,Assembly Station,1,0.77,743.2,1.25,99.9,90.0,69.3,99.0,Healthy
+2024-09,AS-A5,Alpha,Assembly,Assembly Station,5,5.56,142.9,1.06,99.23,90.0,500.4,54.8,Monitor
+2024-10,AS-A5,Alpha,Assembly,Assembly Station,3,3.67,246.8,0.99,99.51,90.0,330.3,63.7,Monitor
+2024-11,AS-A5,Alpha,Assembly,Assembly Station,4,4.83,178.8,1.05,99.33,90.0,434.7,58.2,Monitor
+2024-12,AS-A5,Alpha,Assembly,Assembly Station,2,2.93,370.5,0.99,99.61,90.0,263.7,73.0,Healthy
+2025-01,AS-A5,Alpha,Assembly,Assembly Station,0,0.0,744.0,0.0,100.0,90.0,0.0,100.0,Healthy
+2025-02,AS-A5,Alpha,Assembly,Assembly Station,5,5.63,133.3,0.83,99.16,90.0,506.7,54.2,Monitor
+2025-03,AS-A5,Alpha,Assembly,Assembly Station,1,1.37,742.6,1.02,99.82,90.0,123.3,98.9,Healthy
+2025-04,AS-A5,Alpha,Assembly,Assembly Station,3,3.71,238.8,0.84,99.48,90.0,333.9,63.2,Monitor
+2024-01,AS-A6,Alpha,Assembly,Assembly Station,0,0.0,744.0,0.0,100.0,90.0,0.0,100.0,Healthy
+2024-02,AS-A6,Alpha,Assembly,Assembly Station,1,0.74,695.3,0.86,99.89,90.0,66.6,95.8,Healthy
+2024-03,AS-A6,Alpha,Assembly,Assembly Station,1,0.99,743.0,0.58,99.87,90.0,89.1,99.0,Healthy
+2024-04,AS-A6,Alpha,Assembly,Assembly Station,3,2.31,239.2,0.8,99.68,90.0,207.9,63.3,Monitor
+2024-05,AS-A6,Alpha,Assembly,Assembly Station,4,3.46,185.1,0.68,99.53,90.0,311.4,58.7,Monitor
+2024-06,AS-A6,Alpha,Assembly,Assembly Station,2,1.42,359.3,0.89,99.8,90.0,127.8,72.3,Healthy
+2024-07,AS-A6,Alpha,Assembly,Assembly Station,4,3.23,185.2,0.57,99.57,90.0,290.7,58.7,Monitor
+2024-08,AS-A6,Alpha,Assembly,Assembly Station,6,5.49,123.1,0.71,99.26,90.0,494.1,52.6,Monitor
+2024-09,AS-A6,Alpha,Assembly,Assembly Station,5,4.54,143.1,0.64,99.37,90.0,408.6,54.9,Monitor
+2024-10,AS-A6,Alpha,Assembly,Assembly Station,2,1.46,371.3,0.74,99.8,90.0,131.4,73.1,Healthy
+2024-11,AS-A6,Alpha,Assembly,Assembly Station,4,3.6,179.1,0.64,99.5,90.0,324.0,58.2,Monitor
+2024-12,AS-A6,Alpha,Assembly,Assembly Station,5,4.45,147.9,0.72,99.4,90.0,400.5,55.2,Monitor
+2025-01,AS-A6,Alpha,Assembly,Assembly Station,3,2.26,247.2,0.73,99.7,90.0,203.4,63.8,Monitor
+2025-02,AS-A6,Alpha,Assembly,Assembly Station,3,2.89,223.0,0.77,99.57,90.0,260.1,62.1,Monitor
+2025-03,AS-A6,Alpha,Assembly,Assembly Station,5,4.3,147.9,0.65,99.42,90.0,387.0,55.2,Monitor
+2025-04,AS-A6,Alpha,Assembly,Assembly Station,4,3.78,179.1,0.67,99.48,90.0,340.2,58.2,Monitor
+2024-01,AS-A7,Alpha,Assembly,Assembly Station,3,3.15,247.0,0.77,99.58,90.0,283.5,63.7,Monitor
+2024-02,AS-A7,Alpha,Assembly,Assembly Station,4,4.2,172.9,0.93,99.4,90.0,378.0,57.8,Monitor
+2024-03,AS-A7,Alpha,Assembly,Assembly Station,3,2.55,247.2,0.93,99.66,90.0,229.5,63.8,Monitor
+2024-04,AS-A7,Alpha,Assembly,Assembly Station,4,4.67,178.8,0.95,99.35,90.0,420.3,58.2,Monitor
+2024-05,AS-A7,Alpha,Assembly,Assembly Station,3,2.7,247.1,0.86,99.64,90.0,243.0,63.8,Monitor
+2024-06,AS-A7,Alpha,Assembly,Assembly Station,2,2.18,358.9,0.83,99.7,90.0,196.2,72.2,Healthy
+2024-07,AS-A7,Alpha,Assembly,Assembly Station,3,4.11,246.6,0.8,99.45,90.0,369.9,63.7,Monitor
+2024-08,AS-A7,Alpha,Assembly,Assembly Station,3,3.37,246.9,0.82,99.55,90.0,303.3,63.7,Monitor
+2024-09,AS-A7,Alpha,Assembly,Assembly Station,3,3.22,238.9,1.0,99.55,90.0,289.8,63.2,Monitor
+2024-10,AS-A7,Alpha,Assembly,Assembly Station,0,0.0,744.0,0.0,100.0,90.0,0.0,100.0,Healthy
+2024-11,AS-A7,Alpha,Assembly,Assembly Station,2,2.02,359.0,0.88,99.72,90.0,181.8,72.2,Healthy
+2024-12,AS-A7,Alpha,Assembly,Assembly Station,4,3.9,185.0,0.92,99.48,90.0,351.0,58.6,Monitor
+2025-01,AS-A7,Alpha,Assembly,Assembly Station,4,4.28,184.9,0.88,99.42,90.0,385.2,58.6,Monitor
+2025-02,AS-A7,Alpha,Assembly,Assembly Station,6,4.42,111.3,0.87,99.34,90.0,397.8,51.8,Monitor
+2025-03,AS-A7,Alpha,Assembly,Assembly Station,5,6.66,147.5,0.89,99.1,90.0,599.4,55.1,Monitor
+2025-04,AS-A7,Alpha,Assembly,Assembly Station,1,0.93,719.1,0.98,99.87,90.0,83.7,97.4,Healthy
+2024-01,AS-A8,Alpha,Assembly,Assembly Station,2,2.02,371.0,0.8,99.73,90.0,181.8,73.0,Healthy
+2024-02,AS-A8,Alpha,Assembly,Assembly Station,3,3.59,230.8,0.71,99.48,90.0,323.1,62.6,Monitor
+2024-03,AS-A8,Alpha,Assembly,Assembly Station,2,1.46,371.3,0.64,99.8,90.0,131.4,73.1,Healthy
+2024-04,AS-A8,Alpha,Assembly,Assembly Station,6,5.48,119.1,0.78,99.24,90.0,493.2,52.3,Monitor
+2024-05,AS-A8,Alpha,Assembly,Assembly Station,3,2.14,247.3,0.94,99.71,90.0,192.6,63.8,Monitor
+2024-06,AS-A8,Alpha,Assembly,Assembly Station,1,0.91,719.1,0.65,99.87,90.0,81.9,97.4,Healthy
+2024-07,AS-A8,Alpha,Assembly,Assembly Station,1,1.0,743.0,0.61,99.87,90.0,90.0,99.0,Healthy
+2024-08,AS-A8,Alpha,Assembly,Assembly Station,5,5.55,147.7,0.88,99.25,90.0,499.5,55.2,Monitor
+2024-09,AS-A8,Alpha,Assembly,Assembly Station,1,0.83,719.2,0.53,99.88,90.0,74.7,97.4,Healthy
+2024-10,AS-A8,Alpha,Assembly,Assembly Station,5,4.99,147.8,0.7,99.33,90.0,449.1,55.2,Monitor
+2024-11,AS-A8,Alpha,Assembly,Assembly Station,3,2.62,239.1,0.69,99.64,90.0,235.8,63.2,Monitor
+2024-12,AS-A8,Alpha,Assembly,Assembly Station,4,4.84,184.8,0.86,99.35,90.0,435.6,58.6,Monitor
+2025-01,AS-A8,Alpha,Assembly,Assembly Station,5,5.23,147.8,0.85,99.3,90.0,470.7,55.2,Monitor
+2025-02,AS-A8,Alpha,Assembly,Assembly Station,0,0.0,672.0,0.0,100.0,90.0,0.0,95.2,Healthy
+2025-03,AS-A8,Alpha,Assembly,Assembly Station,2,1.61,371.2,0.94,99.78,90.0,144.9,73.1,Healthy
+2025-04,AS-A8,Alpha,Assembly,Assembly Station,2,2.15,358.9,0.8,99.7,90.0,193.5,72.2,Healthy
+2024-01,CNC-B1,Beta,Machining,CNC,4,14.37,182.4,2.42,98.07,190.0,2730.3,58.0,Monitor
+2024-02,CNC-B1,Beta,Machining,CNC,4,14.32,170.4,3.04,97.94,190.0,2720.8,57.2,Monitor
+2024-03,CNC-B1,Beta,Machining,CNC,5,14.91,145.8,3.12,98.0,190.0,2832.9,54.7,Monitor
+2024-04,CNC-B1,Beta,Machining,CNC,1,1.46,718.5,1.66,99.8,190.0,277.4,97.3,Healthy
+2024-05,CNC-B1,Beta,Machining,CNC,5,18.3,145.1,2.84,97.54,190.0,3477.0,54.5,Monitor
+2024-06,CNC-B1,Beta,Machining,CNC,4,15.36,176.2,2.74,97.87,190.0,2918.4,57.6,Monitor
+2024-07,CNC-B1,Beta,Machining,CNC,7,17.81,103.7,3.05,97.61,190.0,3383.9,49.9,Monitor
+2024-08,CNC-B1,Beta,Machining,CNC,6,18.57,120.9,3.12,97.5,190.0,3528.3,51.9,Monitor
+2024-09,CNC-B1,Beta,Machining,CNC,5,16.74,140.7,2.33,97.67,190.0,3180.6,54.2,Monitor
+2024-10,CNC-B1,Beta,Machining,CNC,5,16.83,145.4,2.5,97.74,190.0,3197.7,54.5,Monitor
+2024-11,CNC-B1,Beta,Machining,CNC,9,27.55,76.9,2.46,96.17,190.0,5234.5,45.8,Monitor
+2024-12,CNC-B1,Beta,Machining,CNC,6,21.99,120.3,2.31,97.04,190.0,4178.1,51.7,Monitor
+2025-01,CNC-B1,Beta,Machining,CNC,5,14.63,145.9,2.86,98.03,190.0,2779.7,54.7,Monitor
+2025-02,CNC-B1,Beta,Machining,CNC,4,12.13,165.0,2.49,98.19,190.0,2304.7,56.9,Monitor
+2025-03,CNC-B1,Beta,Machining,CNC,5,18.62,145.1,2.57,97.5,190.0,3537.8,54.5,Monitor
+2025-04,CNC-B1,Beta,Machining,CNC,3,10.45,236.5,3.31,98.55,190.0,1985.5,62.7,Monitor
+2024-01,CNC-B2,Beta,Machining,CNC,5,21.22,144.6,3.17,97.15,190.0,4031.8,54.3,Monitor
+2024-02,CNC-B2,Beta,Machining,CNC,5,21.38,134.9,2.54,96.93,190.0,4062.2,53.6,Monitor
+2024-03,CNC-B2,Beta,Machining,CNC,6,19.63,120.7,3.51,97.36,190.0,3729.7,51.9,Monitor
+2024-04,CNC-B2,Beta,Machining,CNC,6,23.37,116.1,3.5,96.75,190.0,4440.3,51.4,Monitor
+2024-05,CNC-B2,Beta,Machining,CNC,6,23.83,120.0,2.98,96.8,190.0,4527.7,51.6,Monitor
+2024-06,CNC-B2,Beta,Machining,CNC,7,21.57,99.8,3.26,97.0,190.0,4098.3,49.4,Monitor
+2024-07,CNC-B2,Beta,Machining,CNC,6,20.8,120.5,3.12,97.2,190.0,3952.0,51.8,Monitor
+2024-08,CNC-B2,Beta,Machining,CNC,6,21.66,120.4,3.14,97.09,190.0,4115.4,51.8,Monitor
+2024-09,CNC-B2,Beta,Machining,CNC,4,15.19,176.2,3.62,97.89,190.0,2886.1,57.6,Monitor
+2024-10,CNC-B2,Beta,Machining,CNC,7,25.34,102.7,3.45,96.59,190.0,4814.6,49.5,Monitor
+2024-11,CNC-B2,Beta,Machining,CNC,3,10.37,236.5,2.46,98.56,190.0,1970.3,62.7,Monitor
+2024-12,CNC-B2,Beta,Machining,CNC,4,18.66,181.3,3.24,97.49,190.0,3545.4,57.8,Monitor
+2025-01,CNC-B2,Beta,Machining,CNC,1,3.26,740.7,3.36,99.56,190.0,619.4,98.7,Healthy
+2025-02,CNC-B2,Beta,Machining,CNC,1,3.91,668.1,3.83,99.42,190.0,742.9,93.8,Healthy
+2025-03,CNC-B2,Beta,Machining,CNC,4,15.83,182.0,2.55,97.87,190.0,3007.7,58.0,Monitor
+2025-04,CNC-B2,Beta,Machining,CNC,5,20.01,140.0,3.18,97.22,190.0,3801.9,54.0,Monitor
+2024-01,CNC-B3,Beta,Machining,CNC,4,20.45,180.9,3.85,97.25,190.0,3885.5,57.7,Monitor
+2024-02,CNC-B3,Beta,Machining,CNC,3,12.84,227.7,3.52,98.16,190.0,2439.6,62.0,Monitor
+2024-03,CNC-B3,Beta,Machining,CNC,5,23.61,144.1,3.81,96.83,190.0,4485.9,54.2,Monitor
+2024-04,CNC-B3,Beta,Machining,CNC,5,23.24,139.4,3.51,96.77,190.0,4415.6,53.9,Monitor
+2024-05,CNC-B3,Beta,Machining,CNC,7,30.18,102.0,3.89,95.94,190.0,5734.2,49.3,Monitor
+2024-06,CNC-B3,Beta,Machining,CNC,5,22.38,139.5,3.72,96.89,190.0,4252.2,53.9,Monitor
+2024-07,CNC-B3,Beta,Machining,CNC,6,27.81,119.4,3.77,96.26,190.0,5283.9,51.4,Monitor
+2024-08,CNC-B3,Beta,Machining,CNC,3,12.36,243.9,3.67,98.34,190.0,2348.4,63.2,Monitor
+2024-09,CNC-B3,Beta,Machining,CNC,5,25.05,139.0,3.85,96.52,190.0,4759.5,53.8,Monitor
+2024-10,CNC-B3,Beta,Machining,CNC,6,29.98,119.0,3.27,95.97,190.0,5696.2,51.3,Monitor
+2024-11,CNC-B3,Beta,Machining,CNC,3,9.17,236.9,3.73,98.73,190.0,1742.3,62.8,Monitor
+2024-12,CNC-B3,Beta,Machining,CNC,6,23.18,120.1,3.57,96.88,190.0,4404.2,51.7,Monitor
+2025-01,CNC-B3,Beta,Machining,CNC,5,19.66,144.9,3.26,97.36,190.0,3735.4,54.4,Monitor
+2025-02,CNC-B3,Beta,Machining,CNC,5,23.85,129.6,4.23,96.45,190.0,4531.5,53.1,Monitor
+2025-03,CNC-B3,Beta,Machining,CNC,6,30.36,118.9,3.97,95.92,190.0,5768.4,51.3,Monitor
+2025-04,CNC-B3,Beta,Machining,CNC,4,20.73,174.8,3.56,97.12,190.0,3938.7,57.2,Monitor
+2024-01,LT-B1,Beta,Machining,Lathe,6,39.64,117.4,6.8,94.67,200.0,7928.0,50.8,Monitor
+2024-02,LT-B1,Beta,Machining,Lathe,9,59.25,70.8,5.64,91.49,200.0,11850.0,44.0,Monitor
+2024-03,LT-B1,Beta,Machining,Lathe,17,129.61,36.1,6.2,82.58,200.0,25922.0,31.7,Critical
+2024-04,LT-B1,Beta,Machining,Lathe,11,87.23,57.5,6.28,87.88,200.0,17446.0,40.2,Monitor
+2024-05,LT-B1,Beta,Machining,Lathe,15,126.74,41.2,5.9,82.97,200.0,25348.0,34.0,Critical
+2024-06,LT-B1,Beta,Machining,Lathe,9,73.24,71.9,6.63,89.83,200.0,14648.0,43.6,Monitor
+2024-07,LT-B1,Beta,Machining,Lathe,11,89.28,59.5,6.41,88.0,200.0,17856.0,40.4,Monitor
+2024-08,LT-B1,Beta,Machining,Lathe,13,101.66,49.4,6.32,86.34,200.0,20332.0,37.4,Critical
+2024-09,LT-B1,Beta,Machining,Lathe,14,106.0,43.9,6.56,85.28,200.0,21200.0,35.8,Critical
+2024-10,LT-B1,Beta,Machining,Lathe,13,93.97,50.0,6.09,87.37,200.0,18794.0,37.8,Critical
+2024-11,LT-B1,Beta,Machining,Lathe,10,77.7,64.2,5.67,89.21,200.0,15540.0,42.0,Monitor
+2024-12,LT-B1,Beta,Machining,Lathe,16,108.35,39.7,6.18,85.44,200.0,21670.0,33.8,Critical
+2025-01,LT-B1,Beta,Machining,Lathe,9,67.48,75.2,6.43,90.93,200.0,13496.0,44.2,Monitor
+2025-02,LT-B1,Beta,Machining,Lathe,15,120.16,36.8,7.21,82.12,200.0,24032.0,33.5,Critical
+2025-03,LT-B1,Beta,Machining,Lathe,12,96.53,54.0,6.11,87.03,200.0,19306.0,38.8,Critical
+2025-04,LT-B1,Beta,Machining,Lathe,12,87.0,52.8,6.2,87.92,200.0,17400.0,39.0,Critical
+2024-01,PB-B1,Beta,Painting,Paint Booth,7,26.29,102.5,2.95,96.47,170.0,4469.3,49.5,Monitor
+2024-02,PB-B1,Beta,Painting,Paint Booth,2,6.99,344.5,2.95,99.0,170.0,1188.3,71.0,Healthy
+2024-03,PB-B1,Beta,Painting,Paint Booth,12,46.67,58.1,2.98,93.73,170.0,7933.9,41.1,Monitor
+2024-04,PB-B1,Beta,Painting,Paint Booth,5,15.32,140.9,3.21,97.87,170.0,2604.4,54.3,Monitor
+2024-05,PB-B1,Beta,Painting,Paint Booth,6,20.46,120.6,3.02,97.25,170.0,3478.2,51.8,Monitor
+2024-06,PB-B1,Beta,Painting,Paint Booth,4,15.22,176.2,2.77,97.89,170.0,2587.4,57.6,Monitor
+2024-07,PB-B1,Beta,Painting,Paint Booth,3,11.73,244.1,2.46,98.42,170.0,1994.1,63.2,Monitor
+2024-08,PB-B1,Beta,Painting,Paint Booth,2,7.53,368.2,2.92,98.99,170.0,1280.1,72.6,Healthy
+2024-09,PB-B1,Beta,Painting,Paint Booth,8,26.21,86.7,3.16,96.36,170.0,4455.7,47.5,Monitor
+2024-10,PB-B1,Beta,Painting,Paint Booth,4,16.49,181.9,2.79,97.78,170.0,2803.3,57.9,Monitor
+2024-11,PB-B1,Beta,Painting,Paint Booth,11,38.64,61.9,3.11,94.63,170.0,6568.8,42.5,Monitor
+2024-12,PB-B1,Beta,Painting,Paint Booth,8,28.12,89.5,2.83,96.22,170.0,4780.4,47.6,Monitor
+2025-01,PB-B1,Beta,Painting,Paint Booth,4,12.72,182.8,2.53,98.29,170.0,2162.4,58.1,Monitor
+2025-02,PB-B1,Beta,Painting,Paint Booth,6,22.3,108.3,3.68,96.68,170.0,3791.0,50.8,Monitor
+2025-03,PB-B1,Beta,Painting,Paint Booth,2,6.16,368.9,3.29,99.17,170.0,1047.2,72.7,Healthy
+2025-04,PB-B1,Beta,Painting,Paint Booth,5,15.94,140.8,2.8,97.79,170.0,2709.8,54.3,Monitor
+2024-01,CF-B1,Beta,Painting,Curing Furnace,5,31.29,142.5,5.1,95.79,240.0,7509.6,53.8,Monitor
+2024-02,CF-B1,Beta,Painting,Curing Furnace,8,55.69,80.0,5.62,92.0,240.0,13365.6,45.7,Monitor
+2024-03,CF-B1,Beta,Painting,Curing Furnace,7,48.08,99.4,5.67,93.54,240.0,11539.2,48.4,Monitor
+2024-04,CF-B1,Beta,Painting,Curing Furnace,5,31.35,137.7,4.56,95.65,240.0,7524.0,53.4,Monitor
+2024-05,CF-B1,Beta,Painting,Curing Furnace,2,14.88,364.6,4.56,98.0,240.0,3571.2,72.1,Healthy
+2024-06,CF-B1,Beta,Painting,Curing Furnace,5,37.36,136.5,4.78,94.81,240.0,8966.4,53.1,Monitor
+2024-07,CF-B1,Beta,Painting,Curing Furnace,3,20.61,241.1,5.09,97.23,240.0,4946.4,62.6,Monitor
+2024-08,CF-B1,Beta,Painting,Curing Furnace,3,20.9,241.0,7.68,97.19,240.0,5016.0,62.6,Monitor
+2024-09,CF-B1,Beta,Painting,Curing Furnace,2,14.24,352.9,4.54,98.02,240.0,3417.6,71.3,Healthy
+2024-10,CF-B1,Beta,Painting,Curing Furnace,8,48.04,87.0,5.52,93.54,240.0,11529.6,46.6,Monitor
+2024-11,CF-B1,Beta,Painting,Curing Furnace,4,27.47,173.1,5.92,96.18,240.0,6592.8,56.9,Monitor
+2024-12,CF-B1,Beta,Painting,Curing Furnace,10,71.04,67.3,5.73,90.45,240.0,17049.6,42.6,Monitor
+2025-01,CF-B1,Beta,Painting,Curing Furnace,7,48.89,99.3,5.56,93.43,240.0,11733.6,48.3,Monitor
+2025-02,CF-B1,Beta,Painting,Curing Furnace,8,60.73,76.4,5.03,90.96,240.0,14575.2,45.1,Monitor
+2025-03,CF-B1,Beta,Painting,Curing Furnace,7,51.28,99.0,5.11,93.11,240.0,12307.2,48.2,Monitor
+2025-04,CF-B1,Beta,Painting,Curing Furnace,9,63.44,73.0,5.76,91.19,240.0,15225.6,44.1,Monitor
+2024-01,AS-B1,Beta,Assembly,Assembly Station,2,3.61,370.2,1.31,99.51,85.0,306.85,72.9,Healthy
+2024-02,AS-B1,Beta,Assembly,Assembly Station,4,5.0,172.8,1.11,99.28,85.0,425.0,57.8,Monitor
+2024-03,AS-B1,Beta,Assembly,Assembly Station,5,6.43,147.5,1.08,99.14,85.0,546.55,55.1,Monitor
+2024-04,AS-B1,Beta,Assembly,Assembly Station,4,6.14,178.5,1.06,99.15,85.0,521.9,58.1,Monitor
+2024-05,AS-B1,Beta,Assembly,Assembly Station,4,5.08,184.7,1.29,99.32,85.0,431.8,58.6,Monitor
+2024-06,AS-B1,Beta,Assembly,Assembly Station,5,6.29,142.7,1.34,99.13,85.0,534.65,54.8,Monitor
+2024-07,AS-B1,Beta,Assembly,Assembly Station,1,1.15,742.9,1.87,99.85,85.0,97.75,99.0,Healthy
+2024-08,AS-B1,Beta,Assembly,Assembly Station,7,9.24,105.0,1.35,98.76,85.0,785.4,50.3,Monitor
+2024-09,AS-B1,Beta,Assembly,Assembly Station,2,2.97,358.5,1.17,99.59,85.0,252.45,72.2,Healthy
+2024-10,AS-B1,Beta,Assembly,Assembly Station,6,8.31,122.6,1.3,98.88,85.0,706.35,52.4,Monitor
+2024-11,AS-B1,Beta,Assembly,Assembly Station,1,1.41,718.6,1.29,99.8,85.0,119.85,97.3,Healthy
+2024-12,AS-B1,Beta,Assembly,Assembly Station,5,7.5,147.3,1.15,98.99,85.0,637.5,55.1,Monitor
+2025-01,AS-B1,Beta,Assembly,Assembly Station,5,6.61,147.5,1.4,99.11,85.0,561.85,55.1,Monitor
+2025-02,AS-B1,Beta,Assembly,Assembly Station,3,3.74,222.8,1.39,99.44,85.0,317.9,62.1,Monitor
+2025-03,AS-B1,Beta,Assembly,Assembly Station,7,10.65,104.8,1.2,98.57,85.0,905.25,50.3,Monitor
+2025-04,AS-B1,Beta,Assembly,Assembly Station,4,5.13,178.7,1.12,99.29,85.0,436.05,58.2,Monitor
+2024-01,AS-B2,Beta,Assembly,Assembly Station,2,2.94,370.5,1.31,99.6,85.0,249.9,73.0,Healthy
+2024-02,AS-B2,Beta,Assembly,Assembly Station,9,14.02,75.8,1.36,97.99,85.0,1191.7,46.3,Monitor
+2024-03,AS-B2,Beta,Assembly,Assembly Station,5,10.01,146.8,1.19,98.65,85.0,850.85,54.9,Monitor
+2024-04,AS-B2,Beta,Assembly,Assembly Station,8,13.41,88.3,1.49,98.14,85.0,1139.85,48.1,Monitor
+2024-05,AS-B2,Beta,Assembly,Assembly Station,3,4.79,246.4,1.45,99.36,85.0,407.15,63.6,Monitor
+2024-06,AS-B2,Beta,Assembly,Assembly Station,1,2.16,717.8,1.14,99.7,85.0,183.6,97.2,Healthy
+2024-07,AS-B2,Beta,Assembly,Assembly Station,1,1.22,742.8,1.3,99.84,85.0,103.7,99.0,Healthy
+2024-08,AS-B2,Beta,Assembly,Assembly Station,6,9.26,122.5,1.53,98.76,85.0,787.1,52.4,Monitor
+2024-09,AS-B2,Beta,Assembly,Assembly Station,6,10.03,118.3,1.26,98.61,85.0,852.55,52.1,Monitor
+2024-10,AS-B2,Beta,Assembly,Assembly Station,7,11.15,104.7,1.21,98.5,85.0,947.75,50.2,Monitor
+2024-11,AS-B2,Beta,Assembly,Assembly Station,3,5.02,238.3,1.5,99.3,85.0,426.7,63.1,Monitor
+2024-12,AS-B2,Beta,Assembly,Assembly Station,5,6.63,147.5,1.4,99.11,85.0,563.55,55.1,Monitor
+2025-01,AS-B2,Beta,Assembly,Assembly Station,4,7.73,184.1,1.3,98.96,85.0,657.05,58.4,Monitor
+2025-02,AS-B2,Beta,Assembly,Assembly Station,4,5.72,166.6,1.26,99.15,85.0,486.2,57.3,Monitor
+2025-03,AS-B2,Beta,Assembly,Assembly Station,7,11.28,104.7,1.19,98.48,85.0,958.8,50.2,Monitor
+2025-04,AS-B2,Beta,Assembly,Assembly Station,8,12.9,88.4,1.34,98.21,85.0,1096.5,48.1,Monitor
+2024-01,AS-B3,Beta,Assembly,Assembly Station,4,8.26,183.9,1.22,98.89,85.0,702.1,58.4,Monitor
+2024-02,AS-B3,Beta,Assembly,Assembly Station,6,11.35,114.1,1.41,98.37,85.0,964.75,51.7,Monitor
+2024-03,AS-B3,Beta,Assembly,Assembly Station,9,15.03,81.0,1.36,97.98,85.0,1277.55,46.7,Monitor
+2024-04,AS-B3,Beta,Assembly,Assembly Station,6,11.68,118.1,1.57,98.38,85.0,992.8,52.0,Monitor
+2024-05,AS-B3,Beta,Assembly,Assembly Station,8,15.57,91.1,1.59,97.91,85.0,1323.45,48.2,Monitor
+2024-06,AS-B3,Beta,Assembly,Assembly Station,11,20.14,63.6,1.34,97.2,85.0,1711.9,43.4,Monitor
+2024-07,AS-B3,Beta,Assembly,Assembly Station,11,19.42,65.9,1.4,97.39,85.0,1650.7,43.6,Monitor
+2024-08,AS-B3,Beta,Assembly,Assembly Station,5,6.7,147.5,1.54,99.1,85.0,569.5,55.1,Monitor
+2024-09,AS-B3,Beta,Assembly,Assembly Station,5,7.8,142.4,1.54,98.92,85.0,663.0,54.7,Monitor
+2024-10,AS-B3,Beta,Assembly,Assembly Station,7,13.42,104.4,1.34,98.2,85.0,1140.7,50.1,Monitor
+2024-11,AS-B3,Beta,Assembly,Assembly Station,6,9.95,118.3,1.52,98.62,85.0,845.75,52.1,Monitor
+2024-12,AS-B3,Beta,Assembly,Assembly Station,5,8.56,147.1,1.78,98.85,85.0,727.6,55.0,Monitor
+2025-01,AS-B3,Beta,Assembly,Assembly Station,5,9.85,146.8,1.29,98.68,85.0,837.25,54.9,Monitor
+2025-02,AS-B3,Beta,Assembly,Assembly Station,5,8.52,132.7,1.34,98.73,85.0,724.2,54.0,Monitor
+2025-03,AS-B3,Beta,Assembly,Assembly Station,9,17.4,80.7,1.67,97.66,85.0,1479.0,46.5,Monitor
+2025-04,AS-B3,Beta,Assembly,Assembly Station,6,11.35,118.1,1.43,98.42,85.0,964.75,52.0,Monitor
+2024-01,AS-B4,Beta,Assembly,Assembly Station,7,11.78,104.6,1.4,98.42,85.0,1001.3,50.2,Monitor
+2024-02,AS-B4,Beta,Assembly,Assembly Station,1,2.03,694.0,1.12,99.71,85.0,172.55,95.6,Healthy
+2024-03,AS-B4,Beta,Assembly,Assembly Station,6,9.74,122.4,1.39,98.69,85.0,827.9,52.4,Monitor
+2024-04,AS-B4,Beta,Assembly,Assembly Station,4,7.87,178.0,1.23,98.91,85.0,668.95,58.0,Monitor
+2024-05,AS-B4,Beta,Assembly,Assembly Station,5,8.32,147.1,1.33,98.88,85.0,707.2,55.0,Monitor
+2024-06,AS-B4,Beta,Assembly,Assembly Station,3,6.09,238.0,1.29,99.15,85.0,517.65,63.0,Monitor
+2024-07,AS-B4,Beta,Assembly,Assembly Station,6,7.44,122.8,1.3,99.0,85.0,632.4,52.5,Monitor
+2024-08,AS-B4,Beta,Assembly,Assembly Station,5,8.97,147.0,1.18,98.79,85.0,762.45,55.0,Monitor
+2024-09,AS-B4,Beta,Assembly,Assembly Station,5,7.87,142.4,1.25,98.91,85.0,668.95,54.7,Monitor
+2024-10,AS-B4,Beta,Assembly,Assembly Station,5,7.68,147.3,1.52,98.97,85.0,652.8,55.0,Monitor
+2024-11,AS-B4,Beta,Assembly,Assembly Station,9,15.32,78.3,1.39,97.87,85.0,1302.2,46.4,Monitor
+2024-12,AS-B4,Beta,Assembly,Assembly Station,8,13.42,91.3,1.37,98.2,85.0,1140.7,48.3,Monitor
+2025-01,AS-B4,Beta,Assembly,Assembly Station,4,6.56,184.4,1.65,99.12,85.0,557.6,58.5,Monitor
+2025-02,AS-B4,Beta,Assembly,Assembly Station,2,3.06,334.5,1.26,99.54,85.0,260.1,70.5,Healthy
+2025-03,AS-B4,Beta,Assembly,Assembly Station,4,7.02,184.2,1.42,99.06,85.0,596.7,58.5,Monitor
+2025-04,AS-B4,Beta,Assembly,Assembly Station,5,7.04,142.6,1.55,99.02,85.0,598.4,54.7,Monitor
+2024-01,AS-B5,Beta,Assembly,Assembly Station,6,8.35,122.6,1.05,98.88,85.0,709.75,52.4,Monitor
+2024-02,AS-B5,Beta,Assembly,Assembly Station,6,7.72,114.7,1.17,98.89,85.0,656.2,51.9,Monitor
+2024-03,AS-B5,Beta,Assembly,Assembly Station,5,7.73,147.3,1.03,98.96,85.0,657.05,55.0,Monitor
+2024-04,AS-B5,Beta,Assembly,Assembly Station,0,0.0,720.0,0.0,100.0,85.0,0.0,98.4,Healthy
+2024-05,AS-B5,Beta,Assembly,Assembly Station,6,8.51,122.6,0.99,98.86,85.0,723.35,52.4,Monitor
+2024-06,AS-B5,Beta,Assembly,Assembly Station,5,8.05,142.4,1.08,98.88,85.0,684.25,54.7,Monitor
+2024-07,AS-B5,Beta,Assembly,Assembly Station,6,7.13,122.8,1.16,99.04,85.0,606.05,52.5,Monitor
+2024-08,AS-B5,Beta,Assembly,Assembly Station,8,9.66,91.8,1.24,98.7,85.0,821.1,48.5,Monitor
+2024-09,AS-B5,Beta,Assembly,Assembly Station,4,6.46,178.4,1.02,99.1,85.0,549.1,58.1,Monitor
+2024-10,AS-B5,Beta,Assembly,Assembly Station,7,10.52,104.8,1.09,98.59,85.0,894.2,50.3,Monitor
+2024-11,AS-B5,Beta,Assembly,Assembly Station,9,11.61,78.7,1.02,98.39,85.0,986.85,46.6,Monitor
+2024-12,AS-B5,Beta,Assembly,Assembly Station,8,10.29,91.7,1.0,98.62,85.0,874.65,48.5,Monitor
+2025-01,AS-B5,Beta,Assembly,Assembly Station,3,3.77,246.7,0.88,99.49,85.0,320.45,63.7,Monitor
+2025-02,AS-B5,Beta,Assembly,Assembly Station,6,8.18,110.6,1.03,98.78,85.0,695.3,51.6,Monitor
+2025-03,AS-B5,Beta,Assembly,Assembly Station,3,3.3,246.9,1.08,99.56,85.0,280.5,63.7,Monitor
+2025-04,AS-B5,Beta,Assembly,Assembly Station,3,4.15,238.6,1.18,99.42,85.0,352.75,63.1,Monitor
+2024-01,CNC-G1,Gamma,Machining,CNC,1,1.19,742.8,1.21,99.84,195.0,232.05,99.0,Healthy
+2024-02,CNC-G1,Gamma,Machining,CNC,1,1.65,694.4,1.51,99.76,195.0,321.75,95.7,Healthy
+2024-03,CNC-G1,Gamma,Machining,CNC,1,1.35,742.6,1.81,99.82,195.0,263.25,98.9,Healthy
+2024-04,CNC-G1,Gamma,Machining,CNC,4,6.75,178.3,1.62,99.06,195.0,1316.25,58.1,Monitor
+2024-05,CNC-G1,Gamma,Machining,CNC,3,6.02,246.0,1.63,99.19,195.0,1173.9,63.6,Monitor
+2024-06,CNC-G1,Gamma,Machining,CNC,5,10.72,141.9,1.6,98.51,195.0,2090.4,54.5,Monitor
+2024-07,CNC-G1,Gamma,Machining,CNC,2,3.09,370.5,1.46,99.58,195.0,602.55,73.0,Healthy
+2024-08,CNC-G1,Gamma,Machining,CNC,5,8.8,147.0,1.57,98.82,195.0,1716.0,55.0,Monitor
+2024-09,CNC-G1,Gamma,Machining,CNC,0,0.0,720.0,0.0,100.0,195.0,0.0,98.4,Healthy
+2024-10,CNC-G1,Gamma,Machining,CNC,3,6.42,245.9,1.56,99.14,195.0,1251.9,63.5,Monitor
+2024-11,CNC-G1,Gamma,Machining,CNC,3,5.61,238.1,1.09,99.22,195.0,1093.95,63.0,Monitor
+2024-12,CNC-G1,Gamma,Machining,CNC,0,0.0,744.0,0.0,100.0,195.0,0.0,100.0,Healthy
+2025-01,CNC-G1,Gamma,Machining,CNC,2,3.78,370.1,1.49,99.49,195.0,737.1,72.9,Healthy
+2025-02,CNC-G1,Gamma,Machining,CNC,2,4.42,333.8,1.48,99.34,195.0,861.9,70.4,Healthy
+2025-03,CNC-G1,Gamma,Machining,CNC,0,0.0,744.0,0.0,100.0,195.0,0.0,100.0,Healthy
+2025-04,CNC-G1,Gamma,Machining,CNC,3,6.72,237.8,1.95,99.07,195.0,1310.4,63.0,Monitor
+2024-01,CNC-G2,Gamma,Machining,CNC,2,5.04,369.5,1.93,99.32,195.0,982.8,72.8,Healthy
+2024-02,CNC-G2,Gamma,Machining,CNC,3,6.0,230.0,1.94,99.14,195.0,1170.0,62.5,Monitor
+2024-03,CNC-G2,Gamma,Machining,CNC,4,8.15,184.0,1.75,98.9,195.0,1589.25,58.4,Monitor
+2024-04,CNC-G2,Gamma,Machining,CNC,3,7.36,237.5,2.08,98.98,195.0,1435.2,62.9,Monitor
+2024-05,CNC-G2,Gamma,Machining,CNC,1,2.53,741.5,1.18,99.66,195.0,493.35,98.8,Healthy
+2024-06,CNC-G2,Gamma,Machining,CNC,1,1.71,718.3,1.35,99.76,195.0,333.45,97.3,Healthy
+2024-07,CNC-G2,Gamma,Machining,CNC,2,4.58,369.7,1.97,99.38,195.0,893.1,72.8,Healthy
+2024-08,CNC-G2,Gamma,Machining,CNC,1,1.66,742.3,2.45,99.78,195.0,323.7,98.9,Healthy
+2024-09,CNC-G2,Gamma,Machining,CNC,5,11.43,141.7,1.93,98.41,195.0,2228.85,54.5,Monitor
+2024-10,CNC-G2,Gamma,Machining,CNC,5,12.15,146.4,1.98,98.37,195.0,2369.25,54.8,Monitor
+2024-11,CNC-G2,Gamma,Machining,CNC,3,7.56,237.5,2.01,98.95,195.0,1474.2,62.9,Monitor
+2024-12,CNC-G2,Gamma,Machining,CNC,4,9.35,183.7,2.15,98.74,195.0,1823.25,58.3,Monitor
+2025-01,CNC-G2,Gamma,Machining,CNC,3,8.07,245.3,1.67,98.92,195.0,1573.65,63.4,Monitor
+2025-02,CNC-G2,Gamma,Machining,CNC,3,8.57,221.1,1.98,98.72,195.0,1671.15,61.7,Monitor
+2025-03,CNC-G2,Gamma,Machining,CNC,1,2.33,741.7,2.02,99.69,195.0,454.35,98.8,Healthy
+2025-04,CNC-G2,Gamma,Machining,CNC,2,3.54,358.2,1.86,99.51,195.0,690.3,72.1,Healthy
+2024-01,VMC-G1,Gamma,Machining,VMC,13,102.55,49.3,7.58,86.22,220.0,22561.0,37.4,Critical
+2024-02,VMC-G1,Gamma,Machining,VMC,16,140.75,34.7,7.16,79.78,220.0,30965.0,31.7,Critical
+2024-03,VMC-G1,Gamma,Machining,VMC,19,148.99,31.3,7.14,79.97,220.0,32777.8,28.8,Critical
+2024-04,VMC-G1,Gamma,Machining,VMC,14,122.2,42.7,7.33,83.03,220.0,26884.0,35.1,Critical
+2024-05,VMC-G1,Gamma,Machining,VMC,14,126.65,44.1,6.95,82.98,220.0,27863.0,35.1,Critical
+2024-06,VMC-G1,Gamma,Machining,VMC,22,198.96,23.7,6.86,72.37,220.0,43771.2,23.3,Critical
+2024-07,VMC-G1,Gamma,Machining,VMC,13,102.03,49.4,7.1,86.29,220.0,22446.6,37.4,Critical
+2024-08,VMC-G1,Gamma,Machining,VMC,16,130.95,38.3,7.02,82.4,220.0,28809.0,32.7,Critical
+2024-09,VMC-G1,Gamma,Machining,VMC,15,129.64,39.4,7.81,81.99,220.0,28520.8,33.6,Critical
+2024-10,VMC-G1,Gamma,Machining,VMC,11,95.34,59.0,6.86,87.19,220.0,20974.8,40.1,Monitor
+2024-11,VMC-G1,Gamma,Machining,VMC,16,133.81,36.6,6.8,81.42,220.0,29438.2,32.3,Critical
+2024-12,VMC-G1,Gamma,Machining,VMC,16,137.88,37.9,6.6,81.47,220.0,30333.6,32.4,Critical
+2025-01,VMC-G1,Gamma,Machining,VMC,16,135.22,38.0,6.97,81.83,220.0,29748.4,32.6,Critical
+2025-02,VMC-G1,Gamma,Machining,VMC,16,122.46,34.3,6.29,81.78,220.0,26941.2,32.3,Critical
+2025-03,VMC-G1,Gamma,Machining,VMC,12,104.61,53.3,7.25,85.94,220.0,23014.2,38.5,Critical
+2025-04,VMC-G1,Gamma,Machining,VMC,14,120.71,42.8,6.19,83.23,220.0,26556.2,35.1,Critical
+2024-01,PB-G1,Gamma,Painting,Paint Booth,2,6.26,368.9,2.52,99.16,165.0,1032.9,72.7,Healthy
+2024-02,PB-G1,Gamma,Painting,Paint Booth,1,3.63,692.4,2.59,99.48,165.0,598.95,95.5,Healthy
+2024-03,PB-G1,Gamma,Painting,Paint Booth,6,18.93,120.8,2.87,97.46,165.0,3123.45,51.9,Monitor
+2024-04,PB-G1,Gamma,Painting,Paint Booth,9,30.54,76.6,2.74,95.76,165.0,5039.1,45.7,Monitor
+2024-05,PB-G1,Gamma,Painting,Paint Booth,5,11.62,146.5,2.63,98.44,165.0,1917.3,54.8,Monitor
+2024-06,PB-G1,Gamma,Painting,Paint Booth,3,7.97,237.3,2.64,98.89,165.0,1315.05,62.9,Monitor
+2024-07,PB-G1,Gamma,Painting,Paint Booth,4,9.74,183.6,2.59,98.69,165.0,1607.1,58.3,Monitor
+2024-08,PB-G1,Gamma,Painting,Paint Booth,3,9.11,245.0,3.06,98.78,165.0,1503.15,63.4,Monitor
+2024-09,PB-G1,Gamma,Painting,Paint Booth,7,23.47,99.5,2.67,96.74,165.0,3872.55,49.3,Monitor
+2024-10,PB-G1,Gamma,Painting,Paint Booth,7,22.16,103.1,2.42,97.02,165.0,3656.4,49.7,Monitor
+2024-11,PB-G1,Gamma,Painting,Paint Booth,3,10.5,236.5,1.89,98.54,165.0,1732.5,62.7,Monitor
+2024-12,PB-G1,Gamma,Painting,Paint Booth,4,10.53,183.4,2.58,98.58,165.0,1737.45,58.3,Monitor
+2025-01,PB-G1,Gamma,Painting,Paint Booth,5,14.95,145.8,2.51,97.99,165.0,2466.75,54.6,Monitor
+2025-02,PB-G1,Gamma,Painting,Paint Booth,3,8.13,221.3,2.47,98.79,165.0,1341.45,61.8,Monitor
+2025-03,PB-G1,Gamma,Painting,Paint Booth,4,11.4,183.2,2.68,98.47,165.0,1881.0,58.2,Monitor
+2025-04,PB-G1,Gamma,Painting,Paint Booth,2,5.66,357.2,2.83,99.21,165.0,933.9,72.0,Healthy
+2024-01,CF-G1,Gamma,Painting,Curing Furnace,1,3.39,740.6,3.98,99.54,230.0,779.7,98.7,Healthy
+2024-02,CF-G1,Gamma,Painting,Curing Furnace,4,19.78,169.1,3.87,97.16,230.0,4549.4,56.9,Monitor
+2024-03,CF-G1,Gamma,Painting,Curing Furnace,1,4.24,739.8,4.39,99.43,230.0,975.2,98.6,Healthy
+2024-04,CF-G1,Gamma,Painting,Curing Furnace,5,25.44,138.9,4.06,96.47,230.0,5851.2,53.7,Monitor
+2024-05,CF-G1,Gamma,Painting,Curing Furnace,3,13.01,243.7,4.07,98.25,230.0,2992.3,63.1,Monitor
+2024-06,CF-G1,Gamma,Painting,Curing Furnace,4,16.93,175.8,4.25,97.65,230.0,3893.9,57.5,Monitor
+2024-07,CF-G1,Gamma,Painting,Curing Furnace,1,4.31,739.7,4.01,99.42,230.0,991.3,98.6,Healthy
+2024-08,CF-G1,Gamma,Painting,Curing Furnace,3,13.62,243.5,4.65,98.17,230.0,3132.6,63.1,Monitor
+2024-09,CF-G1,Gamma,Painting,Curing Furnace,1,4.06,715.9,5.52,99.44,230.0,933.8,97.0,Healthy
+2024-10,CF-G1,Gamma,Painting,Curing Furnace,5,25.94,143.6,4.58,96.51,230.0,5966.2,54.1,Monitor
+2024-11,CF-G1,Gamma,Painting,Curing Furnace,7,36.47,97.6,4.32,94.93,230.0,8388.1,48.7,Monitor
+2024-12,CF-G1,Gamma,Painting,Curing Furnace,3,12.82,243.7,4.9,98.28,230.0,2948.6,63.1,Monitor
+2025-01,CF-G1,Gamma,Painting,Curing Furnace,7,33.69,101.5,3.54,95.47,230.0,7748.7,49.1,Monitor
+2025-02,CF-G1,Gamma,Painting,Curing Furnace,2,6.01,333.0,3.62,99.11,230.0,1382.3,70.3,Healthy
+2025-03,CF-G1,Gamma,Painting,Curing Furnace,3,13.64,243.5,3.09,98.17,230.0,3137.2,63.1,Monitor
+2025-04,CF-G1,Gamma,Painting,Curing Furnace,5,20.0,140.0,4.2,97.22,230.0,4600.0,54.0,Monitor
+2024-01,AS-G1,Gamma,Assembly,Assembly Station,1,1.28,742.7,0.85,99.83,80.0,102.4,99.0,Healthy
+2024-02,AS-G1,Gamma,Assembly,Assembly Station,3,3.6,230.8,0.93,99.48,80.0,288.0,62.6,Monitor
+2024-03,AS-G1,Gamma,Assembly,Assembly Station,5,6.14,147.6,1.01,99.17,80.0,491.2,55.1,Monitor
+2024-04,AS-G1,Gamma,Assembly,Assembly Station,5,5.64,142.9,1.07,99.22,80.0,451.2,54.8,Monitor
+2024-05,AS-G1,Gamma,Assembly,Assembly Station,2,2.54,370.7,0.86,99.66,80.0,203.2,73.0,Healthy
+2024-06,AS-G1,Gamma,Assembly,Assembly Station,4,5.69,178.6,1.0,99.21,80.0,455.2,58.1,Monitor
+2024-07,AS-G1,Gamma,Assembly,Assembly Station,5,5.55,147.7,0.97,99.25,80.0,444.0,55.2,Monitor
+2024-08,AS-G1,Gamma,Assembly,Assembly Station,3,3.87,246.7,1.11,99.48,80.0,309.6,63.7,Monitor
+2024-09,AS-G1,Gamma,Assembly,Assembly Station,3,3.09,239.0,0.93,99.57,80.0,247.2,63.2,Monitor
+2024-10,AS-G1,Gamma,Assembly,Assembly Station,4,4.66,184.8,0.97,99.37,80.0,372.8,58.6,Monitor
+2024-11,AS-G1,Gamma,Assembly,Assembly Station,6,7.5,118.8,0.97,98.96,80.0,600.0,52.2,Monitor
+2024-12,AS-G1,Gamma,Assembly,Assembly Station,10,12.86,73.1,1.02,98.27,80.0,1028.8,45.3,Monitor
+2025-01,AS-G1,Gamma,Assembly,Assembly Station,5,6.29,147.5,1.08,99.15,80.0,503.2,55.1,Monitor
+2025-02,AS-G1,Gamma,Assembly,Assembly Station,3,3.45,222.8,1.01,99.49,80.0,276.0,62.1,Monitor
+2025-03,AS-G1,Gamma,Assembly,Assembly Station,1,1.23,742.8,1.09,99.83,80.0,98.4,99.0,Healthy
+2025-04,AS-G1,Gamma,Assembly,Assembly Station,3,2.98,239.0,0.89,99.59,80.0,238.4,63.2,Monitor
+2024-01,AS-G2,Gamma,Assembly,Assembly Station,5,5.64,147.7,0.85,99.24,80.0,451.2,55.2,Monitor
+2024-02,AS-G2,Gamma,Assembly,Assembly Station,6,6.84,114.9,0.85,99.02,80.0,547.2,52.0,Monitor
+2024-03,AS-G2,Gamma,Assembly,Assembly Station,3,3.94,246.7,0.88,99.47,80.0,315.2,63.7,Monitor
+2024-04,AS-G2,Gamma,Assembly,Assembly Station,3,3.24,238.9,0.98,99.55,80.0,259.2,63.2,Monitor
+2024-05,AS-G2,Gamma,Assembly,Assembly Station,3,2.53,247.2,0.82,99.66,80.0,202.4,63.8,Monitor
+2024-06,AS-G2,Gamma,Assembly,Assembly Station,7,7.35,101.8,0.81,98.98,80.0,588.0,50.2,Monitor
+2024-07,AS-G2,Gamma,Assembly,Assembly Station,6,6.7,122.9,0.85,99.1,80.0,536.0,52.5,Monitor
+2024-08,AS-G2,Gamma,Assembly,Assembly Station,1,1.06,742.9,0.76,99.86,80.0,84.8,99.0,Healthy
+2024-09,AS-G2,Gamma,Assembly,Assembly Station,6,5.57,119.1,0.91,99.23,80.0,445.6,52.3,Monitor
+2024-10,AS-G2,Gamma,Assembly,Assembly Station,2,2.16,370.9,0.8,99.71,80.0,172.8,73.0,Healthy
+2024-11,AS-G2,Gamma,Assembly,Assembly Station,4,5.04,178.7,1.08,99.3,80.0,403.2,58.2,Monitor
+2024-12,AS-G2,Gamma,Assembly,Assembly Station,2,2.17,370.9,0.69,99.71,80.0,173.6,73.0,Healthy
+2025-01,AS-G2,Gamma,Assembly,Assembly Station,4,3.27,185.2,0.96,99.56,80.0,261.6,58.7,Monitor
+2025-02,AS-G2,Gamma,Assembly,Assembly Station,4,5.08,166.7,0.85,99.24,80.0,406.4,57.3,Monitor
+2025-03,AS-G2,Gamma,Assembly,Assembly Station,6,5.92,123.0,0.87,99.2,80.0,473.6,52.6,Monitor
+2025-04,AS-G2,Gamma,Assembly,Assembly Station,1,1.12,718.9,0.74,99.84,80.0,89.6,97.4,Healthy
+2024-01,AS-G3,Gamma,Assembly,Assembly Station,1,1.17,742.8,1.09,99.84,80.0,93.6,99.0,Healthy
+2024-02,AS-G3,Gamma,Assembly,Assembly Station,3,4.38,230.5,1.27,99.37,80.0,350.4,62.6,Monitor
+2024-03,AS-G3,Gamma,Assembly,Assembly Station,4,4.07,185.0,1.26,99.45,80.0,325.6,58.6,Monitor
+2024-04,AS-G3,Gamma,Assembly,Assembly Station,6,7.33,118.8,0.91,98.98,80.0,586.4,52.2,Monitor
+2024-05,AS-G3,Gamma,Assembly,Assembly Station,7,8.45,105.1,1.07,98.86,80.0,676.0,50.4,Monitor
+2024-06,AS-G3,Gamma,Assembly,Assembly Station,4,6.69,178.3,0.95,99.07,80.0,535.2,58.1,Monitor
+2024-07,AS-G3,Gamma,Assembly,Assembly Station,3,3.83,246.7,1.2,99.49,80.0,306.4,63.7,Monitor
+2024-08,AS-G3,Gamma,Assembly,Assembly Station,6,9.35,122.4,1.05,98.74,80.0,748.0,52.4,Monitor
+2024-09,AS-G3,Gamma,Assembly,Assembly Station,1,0.9,719.1,1.21,99.88,80.0,72.0,97.4,Healthy
+2024-10,AS-G3,Gamma,Assembly,Assembly Station,2,3.2,370.4,0.81,99.57,80.0,256.0,72.9,Healthy
+2024-11,AS-G3,Gamma,Assembly,Assembly Station,2,1.82,359.1,0.93,99.75,80.0,145.6,72.2,Healthy
+2024-12,AS-G3,Gamma,Assembly,Assembly Station,11,15.82,66.2,1.07,97.87,80.0,1265.6,43.8,Monitor
+2025-01,AS-G3,Gamma,Assembly,Assembly Station,3,3.4,246.9,1.08,99.54,80.0,272.0,63.7,Monitor
+2025-02,AS-G3,Gamma,Assembly,Assembly Station,2,2.32,334.8,1.16,99.65,80.0,185.6,70.6,Healthy
+2025-03,AS-G3,Gamma,Assembly,Assembly Station,2,3.47,370.3,1.26,99.53,80.0,277.6,72.9,Healthy
+2025-04,AS-G3,Gamma,Assembly,Assembly Station,3,4.11,238.6,1.07,99.43,80.0,328.8,63.1,Monitor

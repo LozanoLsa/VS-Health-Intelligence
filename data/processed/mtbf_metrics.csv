@@ -1,0 +1,36 @@
+machine_id,vsm,area,machine_type,mtbf_hrs,mttr_hrs,failures_30d,availability_pct,downtime_cost_per_hr,total_monthly_downtime_cost,health_score,health_status
+CNC-A1,Alpha,Machining,CNC,404.4,1.35,4,99.09,210.0,1379.7,94.7,Healthy
+CNC-A2,Alpha,Machining,CNC,400.9,1.17,1,99.91,210.0,130.2,98.3,Healthy
+CNC-A3,Alpha,Machining,CNC,315.3,1.01,1,99.82,210.0,270.9,87.7,Healthy
+CNC-A4,Alpha,Machining,CNC,286.2,1.39,3,99.5,210.0,753.9,81.5,Healthy
+CNC-A5,Alpha,Machining,CNC,321.9,1.1,3,99.42,210.0,879.9,85.9,Healthy
+PB-A1,Alpha,Painting,Paint Booth,246.5,2.01,2,99.17,180.0,1081.8,77.7,Healthy
+PB-A2,Alpha,Painting,Paint Booth,286.1,1.8,5,98.41,180.0,2061.0,78.6,Healthy
+CF-A1,Alpha,Painting,Curing Furnace,246.8,3.57,4,97.56,250.0,4387.5,74.8,Healthy
+AS-A1,Alpha,Assembly,Assembly Station,274.5,0.8,1,99.83,90.0,108.9,82.6,Healthy
+AS-A2,Alpha,Assembly,Assembly Station,143.4,0.68,1,99.92,90.0,54.9,66.5,Monitor
+AS-A3,Alpha,Assembly,Assembly Station,254.4,0.89,4,99.31,90.0,449.1,76.2,Healthy
+AS-A4,Alpha,Assembly,Assembly Station,209.7,0.77,5,99.38,90.0,399.6,69.5,Monitor
+AS-A5,Alpha,Assembly,Assembly Station,206.2,1.01,3,99.48,90.0,333.9,71.6,Healthy
+AS-A6,Alpha,Assembly,Assembly Station,199.8,0.69,4,99.48,90.0,340.2,69.5,Monitor
+AS-A7,Alpha,Assembly,Assembly Station,225.6,0.89,2,99.7,90.0,192.6,75.3,Healthy
+AS-A8,Alpha,Assembly,Assembly Station,256.0,0.79,2,99.7,90.0,193.5,79.1,Healthy
+CNC-B1,Beta,Machining,CNC,144.3,2.71,4,98.02,190.0,2705.6,62.2,Monitor
+CNC-B2,Beta,Machining,CNC,149.1,3.17,6,96.76,190.0,4430.8,60.0,Monitor
+CNC-B3,Beta,Machining,CNC,145.8,3.71,5,96.36,190.0,4981.8,60.7,Monitor
+LT-B1,Beta,Machining,Lathe,60.0,6.29,12,87.92,200.0,17400.0,38.8,Critical
+PB-B1,Beta,Painting,Paint Booth,125.1,3.0,5,97.79,170.0,2709.8,58.6,Monitor
+CF-B1,Beta,Painting,Curing Furnace,124.1,5.43,9,91.19,240.0,15225.6,51.5,Monitor
+AS-B1,Beta,Assembly,Assembly Station,166.9,1.25,5,99.11,85.0,542.3,64.1,Monitor
+AS-B2,Beta,Assembly,Assembly Station,145.8,1.34,9,97.91,85.0,1277.55,56.1,Monitor
+AS-B3,Beta,Assembly,Assembly Station,105.6,1.46,8,97.86,85.0,1309.0,52.4,Monitor
+AS-B4,Beta,Assembly,Assembly Station,143.1,1.37,5,99.02,85.0,598.4,61.1,Monitor
+AS-B5,Beta,Assembly,Assembly Station,132.7,1.07,3,99.42,85.0,352.75,62.5,Monitor
+CNC-G1,Gamma,Machining,CNC,330.5,1.55,3,99.07,195.0,1310.4,86.8,Healthy
+CNC-G2,Gamma,Machining,CNC,245.6,1.92,2,99.51,195.0,690.3,77.7,Healthy
+VMC-G1,Gamma,Machining,VMC,47.2,6.98,16,81.19,220.0,29794.6,30.2,Critical
+PB-G1,Gamma,Painting,Paint Booth,166.9,2.62,2,99.21,165.0,933.9,67.9,Monitor
+CF-G1,Gamma,Painting,Curing Furnace,209.0,4.13,5,97.22,230.0,4600.0,68.8,Monitor
+AS-G1,Gamma,Assembly,Assembly Station,173.7,1.0,3,99.59,80.0,238.4,67.6,Monitor
+AS-G2,Gamma,Assembly,Assembly Station,176.0,0.87,2,99.7,80.0,174.4,69.2,Monitor
+AS-G3,Gamma,Assembly,Assembly Station,188.8,1.07,3,99.43,80.0,328.8,69.4,Monitor

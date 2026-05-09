@@ -1,0 +1,36 @@
+machine_id,vsm,area,machine_type,year_installed,manufacturer,downtime_cost_per_hr
+CNC-A1,Alpha,Machining,CNC,2019,Mazak,210
+CNC-A2,Alpha,Machining,CNC,2020,Mazak,210
+CNC-A3,Alpha,Machining,CNC,2021,DMG Mori,210
+CNC-A4,Alpha,Machining,CNC,2021,DMG Mori,210
+CNC-A5,Alpha,Machining,CNC,2022,Haas,210
+PB-A1,Alpha,Painting,Paint Booth,2020,Nordson,180
+PB-A2,Alpha,Painting,Paint Booth,2020,Nordson,180
+CF-A1,Alpha,Painting,Curing Furnace,2018,Despatch,250
+AS-A1,Alpha,Assembly,Assembly Station,2021,In-house,90
+AS-A2,Alpha,Assembly,Assembly Station,2021,In-house,90
+AS-A3,Alpha,Assembly,Assembly Station,2021,In-house,90
+AS-A4,Alpha,Assembly,Assembly Station,2022,In-house,90
+AS-A5,Alpha,Assembly,Assembly Station,2022,In-house,90
+AS-A6,Alpha,Assembly,Assembly Station,2022,In-house,90
+AS-A7,Alpha,Assembly,Assembly Station,2023,In-house,90
+AS-A8,Alpha,Assembly,Assembly Station,2023,In-house,90
+CNC-B1,Beta,Machining,CNC,2017,Haas,190
+CNC-B2,Beta,Machining,CNC,2018,Haas,190
+CNC-B3,Beta,Machining,CNC,2016,Fanuc,190
+LT-B1,Beta,Machining,Lathe,2011,Colchester,200
+PB-B1,Beta,Painting,Paint Booth,2017,Graco,170
+CF-B1,Beta,Painting,Curing Furnace,2015,Despatch,240
+AS-B1,Beta,Assembly,Assembly Station,2018,In-house,85
+AS-B2,Beta,Assembly,Assembly Station,2018,In-house,85
+AS-B3,Beta,Assembly,Assembly Station,2019,In-house,85
+AS-B4,Beta,Assembly,Assembly Station,2019,In-house,85
+AS-B5,Beta,Assembly,Assembly Station,2020,In-house,85
+CNC-G1,Gamma,Machining,CNC,2020,Makino,195
+CNC-G2,Gamma,Machining,CNC,2019,Makino,195
+VMC-G1,Gamma,Machining,VMC,2013,Haas,220
+PB-G1,Gamma,Painting,Paint Booth,2018,Graco,165
+CF-G1,Gamma,Painting,Curing Furnace,2016,Despatch,230
+AS-G1,Gamma,Assembly,Assembly Station,2019,In-house,80
+AS-G2,Gamma,Assembly,Assembly Station,2020,In-house,80
+AS-G3,Gamma,Assembly,Assembly Station,2020,In-house,80
