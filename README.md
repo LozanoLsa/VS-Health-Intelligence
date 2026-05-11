@@ -9,6 +9,10 @@
 
 ---
 
+![Dashboard Header](assets/01_dashboard_header.png)
+
+---
+
 ## Business Problem
 
 Manufacturing plants generate thousands of failure events per year, but most reliability and industrial engineers analyze them in flat spreadsheets, losing spatial and temporal context entirely. When a critical machine goes down on the Beta line, you want to *see* it on the plant floor, understand *why* it failed, *predict* when the next failure will happen, and get a *concrete action plan* — not find a row buried in a CSV.
@@ -25,31 +29,45 @@ This project answers four questions in one dashboard:
 ## Dashboard — 4 Tabs
 
 ### Tab 1 — VS Overview
-- Interactive Plotly plant heatmap — hover over any machine to see its full health score breakdown (MTBF / Availability / Failures contributions)
-- Value Stream Cost Intelligence cards per VSM line (Alpha, Beta, Gamma) with current + forecast scores
-- Top Critical and Top Healthiest machine tables
+
+Interactive Plotly plant heatmap — hover over any machine to see its full health score breakdown (MTBF / Availability / Failures contributions). Value Stream Cost Intelligence cards per VSM line (Alpha, Beta, Gamma) with current + forecast scores. Top Critical and Top Healthiest machine tables.
+
+![Plant Floor Heatmap](assets/02_plant_floor_heatmap.png)
+
+![VSM Intelligence Cards](assets/03_vsm_intelligence_cards.png)
+
+---
 
 ### Tab 2 — Monthly Trends
-- Date range selector (From → To) across the full historical window
-- VSM trend lines per metric (Health Score, MTBF, MTTR, Availability, Cost)
-- Stacked failure bar chart by area with value labels
-- Health score calendar heatmap (machine × month)
-- Machine snapshot table for any selected month
+
+Date range selector (From → To) across the full historical window. VSM trend lines per metric (Health Score, MTBF, MTTR, Availability, Cost). Stacked failure bar chart by area with value labels. Health score calendar heatmap (machine × month). Machine snapshot table for any selected month.
+
+![Monthly Trends](assets/04_monthly_trends.png)
+
+---
 
 ### Tab 3 — Predictive Simulation
-- Linear trend forecast per machine with 80% prediction intervals
-- VSM-level forecast summary cards
-- Machine Risk Ranking table (HIGH / MEDIUM / LOW)
-- Machine Deep Dive: forecast chart + insight card with trend signal quality
-- Technical methodology expander explaining model choice and evolution roadmap
+
+Linear trend forecast per machine with 80% prediction intervals. VSM-level forecast summary cards. Machine Risk Ranking table (HIGH / MEDIUM / LOW). Machine Deep Dive: forecast chart + insight card with trend signal quality. Technical methodology expander explaining model choice and evolution roadmap.
+
+![Machine Risk Ranking](assets/05_machine_risk_ranking.png)
+
+![Machine Deep Dive Forecast](assets/06_machine_deep_dive_forecast.png)
+
+---
 
 ### Tab 4 — Root Cause & Prescriptive
+
 - **A** — Component Cost Pareto (80/20 rule)
 - **B** — Component × Machine Downtime Heatmap
 - **C** — Avg MTTR by Failure Type & Area
 - **D** — Prioritized Prescriptive Action Plan (automated, cost-justified)
 - **E** — Cost to Act vs Cost if Ignored (3-month projection)
 - **F** — Component ROI Summary (Value Stream-wide)
+
+![Component Cost Pareto](assets/07_component_cost_pareto.png)
+
+![Cost to Act vs Ignored](assets/08_cost_to_act_vs_ignored.png)
 
 ---
 
@@ -219,7 +237,7 @@ data/processed/
 ### 4. Launch the dashboard
 
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 Opens at `http://localhost:8501`.
@@ -229,12 +247,13 @@ Opens at `http://localhost:8501`.
 ## Project Structure
 
 ```
-mtbf_spatial_analytics/
+VS_Health_Intelligence/
 ├── app.py                    # Streamlit dashboard — 4 tabs
 ├── config.yaml               # Path and parameter configuration
 ├── requirements.txt
 ├── _run_etl.py               # ETL runner (generates all processed CSVs)
 │
+├── assets/                   # Dashboard screenshots
 ├── data/
 │   ├── raw/                  # Source CSVs (equipment, failures, production)
 │   ├── processed/            # ETL output (3 CSVs)
