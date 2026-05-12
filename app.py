@@ -1415,22 +1415,21 @@ with tab4:
 
         st.markdown("---")
 
-        # ── Section B: Component × Machine Heatmap (always all history) ──────
+        # ── Section B: Component × Machine Heatmap ───────────────────────────
         st.markdown("#### B — Component × Machine Downtime Heatmap")
         st.caption(
-            f"📊 All history ({_all_months_rc[0]} → {_all_months_rc[-1]})  ·  "
-            "Full structural view — always shows the complete history regardless of the "
-            "window selector above. "
+            f"📊 {_win_label}  ·  "
             "Heat matrix: rows = machines, columns = components. "
-            "Each cell color represents accumulated downtime hours — darker = more time stopped. "
-            "Use this to detect systemic patterns that require the full data range to be visible."
+            "Each cell color represents accumulated downtime hours for that component "
+            "on that specific machine during the selected window — darker = more time stopped. "
+            "Use the VSM filter to focus the analysis on a single value stream."
         )
         vsm_rc = st.radio(
             "VSM filter for heatmap",
             ["All", "Alpha", "Beta", "Gamma"],
             horizontal=True, key="rc_vsm_heatmap",
         )
-        fig_hmap = plot_component_machine_heatmap(comp_f, vsm_filter=vsm_rc)
+        fig_hmap = plot_component_machine_heatmap(_comp_window, vsm_filter=vsm_rc)
         st.pyplot(fig_hmap, use_container_width=True)
         st.info(
             "💡 **How to read it:** If an entire column is dark (e.g. 'coolant_system' "
