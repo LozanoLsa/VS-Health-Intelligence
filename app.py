@@ -666,7 +666,7 @@ with tab2:
             help=(
                 "Average health score across all machine-months in the selected range. "
                 "Each machine contributes one score per month (0–100). "
-                "This is the fleet-wide average over the entire period."
+                "This is the Value Stream-wide average over the entire period."
             ),
         )
         k3.metric(
@@ -676,7 +676,7 @@ with tab2:
                 f"Sum of ALL failure events recorded across all {monthly_range['machine_id'].nunique()} machines "
                 f"over the {n_months_sel} selected months. "
                 f"This is an accumulated count — not a snapshot. "
-                f"Monthly average: ~{_avg_fails_mo:.0f} failures / month across the fleet."
+                f"Monthly average: ~{_avg_fails_mo:.0f} failures / month across all Value Streams."
             ),
         )
         k4.metric(
