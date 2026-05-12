@@ -153,10 +153,41 @@ tab1, tab2, tab3, tab4 = st.tabs([
 # ╚══════════════════════════════════════════════════════════════════════════════
 with tab1:
 
+    # ── Period selector ───────────────────────────────────────────────────────
+    _avail_months = sorted(monthly["year_month"].unique().tolist()) if monthly is not None else []
+    _period_opts  = ["All time (overall)"] + _avail_months
+    sel_col, _ = st.columns([0.32, 0.68])
+    with sel_col:
+        selected_period = st.selectbox(
+            "🗓 Heatmap period",
+            _period_opts,
+            index=0,
+            help=(
+                "'All time' shows KPIs calculated across the full history. "
+                "Select a specific month to see the plant health state at that point in time."
+            ),
+        )
+
+    # Build heatmap_metrics for the selected period
+    if selected_period == "All time (overall)" or monthly is None:
+        heatmap_metrics   = metrics
+        period_label      = "Overall"
+        show_fc_cards     = True
+    else:
+        _mdf = monthly[monthly["year_month"] == selected_period].copy()
+        _mdf = _mdf.rename(columns={
+            "failures_count":     "failures_30d",
+            "monthly_downtime_cost": "total_monthly_downtime_cost",
+        })
+        heatmap_metrics = _mdf
+        period_label    = selected_period
+        show_fc_cards   = False
+
     # ── Health formula popover ────────────────────────────────────────────────
     col_title, col_pop = st.columns([0.88, 0.12])
     with col_title:
-        st.markdown("#### Plant Heatmap — Real-time Health Scores")
+        _period_sfx = f" — {period_label}" if period_label != "Overall" else ""
+        st.markdown(f"#### Plant Heatmap — Health Scores{_period_sfx}")
     with col_pop:
         with st.popover("? Formula"):
             st.markdown(
@@ -183,7 +214,7 @@ with tab1:
     # ── Heatmap (Plotly — interactive hover) ─────────────────────────────────
     with st.spinner("Rendering heatmap..."):
         fig_heat = generate_heatmap_plotly(
-            metrics_df=metrics,
+            metrics_df=heatmap_metrics,
             filter_vsm=filter_vsm,
             filter_area=filter_area,
             filter_status=filter_status,
@@ -199,9 +230,11 @@ with tab1:
     vsm_bg       = {"Alpha": "#EAF2FB", "Beta": "#E8F8F5", "Gamma": "#FDEDEC"}
     vsm_machines = {"Alpha": 12, "Beta": 12, "Gamma": 11}
 
+    _health_now_label = "avg health (now)" if period_label == "Overall" else f"avg health ({period_label})"
+
     c1, c2, c3 = st.columns(3)
     for col, vsm in zip([c1, c2, c3], ["Alpha", "Beta", "Gamma"]):
-        vsm_data  = metrics[metrics["vsm"] == vsm]
+        vsm_data  = heatmap_metrics[heatmap_metrics["vsm"] == vsm]
         n_total   = len(vsm_data)
         n_crit    = int((vsm_data["health_status"] == "Critical").sum())
         n_mon     = int((vsm_data["health_status"] == "Monitor").sum())
@@ -253,7 +286,7 @@ with tab1:
               <div style="font-size:1.6rem; font-weight:700; color:{score_col};">
                 {avg_score:.1f}
                 <span style="font-size:0.8rem; color:#555; font-weight:400;">
-                  &nbsp;avg health (now)
+                  &nbsp;{_health_now_label}
                 </span>
               </div>
 
@@ -280,7 +313,7 @@ with tab1:
         )
 
         # Forecast block rendered separately to avoid nested f-string bug
-        if show_fc:
+        if show_fc and show_fc_cards:
             col.markdown(
                 f"""
                 <div style="background:{vsm_bg[vsm]}; border-left:5px solid {fc_score_col};
@@ -310,7 +343,7 @@ with tab1:
 
     with col_crit:
         st.markdown("##### Top Critical Machines")
-        crit_df = top_critical(metrics, n=5)
+        crit_df = top_critical(heatmap_metrics, n=5)
         if crit_df.empty:
             st.success("No critical machines — all above threshold!")
         else:
@@ -329,7 +362,7 @@ with tab1:
 
     with col_ok:
         st.markdown("##### Top Healthiest Machines")
-        healthy_df = top_healthy(metrics, n=5)
+        healthy_df = top_healthy(heatmap_metrics, n=5)
         st.dataframe(
             _r(healthy_df).style.set_properties(**{
                 "background-color": "#EAFAF1", "color": "#1E8449"}),
