@@ -329,6 +329,100 @@ with tab1:
             unsafe_allow_html=True,
         )
 
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("##### 📋 Real examples from this dataset")
+        ex1, ex2 = st.columns(2)
+
+        with ex1:
+            st.markdown(
+                """
+                <div style="background:#EAFAF1; border:1px solid #2ECC71;
+                            border-radius:8px; padding:14px 16px;">
+                  <div style="font-size:1.0rem; font-weight:700; color:#1E8449;">
+                    CF-A1 &nbsp;·&nbsp;
+                    <span style="background:#2ECC71; color:white; border-radius:4px;
+                                 padding:2px 8px; font-size:0.8rem;">Healthy · 74.8</span>
+                  </div>
+                  <div style="font-size:0.8rem; color:#555; margin:4px 0 10px;">
+                    VSM Alpha · Painting
+                  </div>
+                  <table style="font-size:0.85rem; width:100%; border-collapse:collapse;">
+                    <tr style="color:#555;">
+                      <td style="padding:3px 0;"><b>① MTBF</b></td>
+                      <td>247 hrs &nbsp;÷&nbsp; 400 hrs best</td>
+                      <td style="text-align:right;"><b>30.5 / 50</b></td>
+                    </tr>
+                    <tr style="color:#555;">
+                      <td style="padding:3px 0;"><b>② Avail.</b></td>
+                      <td>97.6% &nbsp;→&nbsp; near perfect</td>
+                      <td style="text-align:right;"><b>29.3 / 30</b></td>
+                    </tr>
+                    <tr style="color:#555;">
+                      <td style="padding:3px 0;"><b>③ Fails</b></td>
+                      <td>4 this month &nbsp;÷&nbsp; 20 max in VS</td>
+                      <td style="text-align:right;"><b>15.0 / 20</b></td>
+                    </tr>
+                    <tr style="border-top:1px solid #ccc;">
+                      <td colspan="2" style="padding-top:6px; font-weight:700;">Score</td>
+                      <td style="text-align:right; font-weight:700; color:#1E8449;
+                                 font-size:1.1rem; padding-top:6px;">74.8</td>
+                    </tr>
+                  </table>
+                  <div style="font-size:0.8rem; color:#555; margin-top:8px; font-style:italic;">
+                    Reliable, minimal downtime, low recent failures.
+                    The 15/20 on failures hints at something worth watching,
+                    but overall this machine is well-behaved.
+                  </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+        with ex2:
+            st.markdown(
+                """
+                <div style="background:#FDECEA; border:1px solid #E74C3C;
+                            border-radius:8px; padding:14px 16px;">
+                  <div style="font-size:1.0rem; font-weight:700; color:#922B21;">
+                    LT-B1 &nbsp;·&nbsp;
+                    <span style="background:#E74C3C; color:white; border-radius:4px;
+                                 padding:2px 8px; font-size:0.8rem;">Critical · 38.8</span>
+                  </div>
+                  <div style="font-size:0.8rem; color:#555; margin:4px 0 10px;">
+                    VSM Beta · Machining
+                  </div>
+                  <table style="font-size:0.85rem; width:100%; border-collapse:collapse;">
+                    <tr style="color:#555;">
+                      <td style="padding:3px 0;"><b>① MTBF</b></td>
+                      <td>60 hrs &nbsp;÷&nbsp; 400 hrs best</td>
+                      <td style="text-align:right;"><b style="color:#E74C3C;">7.5 / 50</b></td>
+                    </tr>
+                    <tr style="color:#555;">
+                      <td style="padding:3px 0;"><b>② Avail.</b></td>
+                      <td>87.9% &nbsp;→&nbsp; losing production</td>
+                      <td style="text-align:right;"><b style="color:#F39C12;">26.4 / 30</b></td>
+                    </tr>
+                    <tr style="color:#555;">
+                      <td style="padding:3px 0;"><b>③ Fails</b></td>
+                      <td>12 this month &nbsp;÷&nbsp; 20 max in VS</td>
+                      <td style="text-align:right;"><b style="color:#E74C3C;">5.0 / 20</b></td>
+                    </tr>
+                    <tr style="border-top:1px solid #ccc;">
+                      <td colspan="2" style="padding-top:6px; font-weight:700;">Score</td>
+                      <td style="text-align:right; font-weight:700; color:#E74C3C;
+                                 font-size:1.1rem; padding-top:6px;">38.8</td>
+                    </tr>
+                  </table>
+                  <div style="font-size:0.8rem; color:#555; margin-top:8px; font-style:italic;">
+                    Failing every 60 hrs, losing 12% of production time,
+                    and getting worse this month. Each of the three signals
+                    is red — the score is the sum of three bad answers.
+                  </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
     st.markdown("---")
 
     # ── VSM Cost Intelligence Cards ───────────────────────────────────────────
