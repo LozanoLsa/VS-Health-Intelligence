@@ -221,6 +221,114 @@ with tab1:
         )
     st.plotly_chart(fig_heat, use_container_width=True)
 
+    # ── How to read the Health Score ─────────────────────────────────────────
+    with st.expander("🩺 How to read a machine's health score"):
+        st.markdown(
+            """
+            <div style="font-size:0.93rem; color:#0D1B2A; line-height:1.7;">
+
+            Think of the Health Score as a <b>doctor's diagnosis</b> —
+            not a single test, but three questions asked at once,
+            each weighted by how much it reveals about the machine's real condition.
+
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        q1, q2, q3 = st.columns(3)
+
+        with q1:
+            st.markdown(
+                """
+                <div style="background:#EAF2FB; border-left:5px solid #1A5276;
+                            border-radius:8px; padding:14px 16px; height:100%;">
+                  <div style="font-size:1.05rem; font-weight:700; color:#1A5276;">
+                    ① How long does it run<br>before breaking?
+                  </div>
+                  <div style="font-size:0.78rem; font-weight:700; color:#555;
+                              margin:6px 0 10px; letter-spacing:0.5px;">
+                    MTBF &nbsp;·&nbsp; weight 50%
+                  </div>
+                  <div style="font-size:0.88rem; color:#333;">
+                    The strongest reliability signal.
+                    A machine that runs 400 hrs between failures
+                    is fundamentally different from one that runs 40 hrs —
+                    no matter how fast it gets repaired.
+                    <br><br>
+                    <b>Gets the most weight (50%)</b> because it reflects
+                    what's happening <i>inside</i> the machine.
+                  </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+        with q2:
+            st.markdown(
+                """
+                <div style="background:#E8F8F5; border-left:5px solid #117A65;
+                            border-radius:8px; padding:14px 16px; height:100%;">
+                  <div style="font-size:1.05rem; font-weight:700; color:#117A65;">
+                    ② When it breaks, how much<br>production is lost?
+                  </div>
+                  <div style="font-size:0.78rem; font-weight:700; color:#555;
+                              margin:6px 0 10px; letter-spacing:0.5px;">
+                    AVAILABILITY &nbsp;·&nbsp; weight 30%
+                  </div>
+                  <div style="font-size:0.88rem; color:#333;">
+                    What the Plant Manager feels directly on the floor.
+                    A machine at 97% availability lost only 2.4 hrs
+                    out of every 100 hrs of planned production.
+                    <br><br>
+                    <b>30% weight</b> because downtime is the
+                    cost the business actually pays.
+                  </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+        with q3:
+            st.markdown(
+                """
+                <div style="background:#FEF9E7; border-left:5px solid #D4AC0D;
+                            border-radius:8px; padding:14px 16px; height:100%;">
+                  <div style="font-size:1.05rem; font-weight:700; color:#B7950B;">
+                    ③ Is it getting worse<br>recently?
+                  </div>
+                  <div style="font-size:0.78rem; font-weight:700; color:#555;
+                              margin:6px 0 10px; letter-spacing:0.5px;">
+                    FAILURES (30 days) &nbsp;·&nbsp; weight 20%
+                  </div>
+                  <div style="font-size:0.88rem; color:#333;">
+                    The early-warning signal. A machine can have
+                    a good historical MTBF but suddenly fail
+                    3 times this month — that shift doesn't show
+                    up in the other two numbers.
+                    <br><br>
+                    <b>20% weight</b> adds recency context
+                    that MTBF alone misses.
+                  </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown(
+            """
+            <div style="background:#F4F6F7; border-radius:8px; padding:14px 18px;
+                        border-left:5px solid #E84C1F; font-size:0.9rem; color:#0D1B2A;">
+              <b>🔑 The key insight:</b> &nbsp;No machine is judged against an absolute standard.
+              Each score is normalized against the <b>best performer in its own Value Stream</b>.
+              A CNC in Gamma competes only against other Gamma machines — not against Alpha's best.
+              This makes the score <b>fair, contextual, and actionable</b> regardless of machine type or age.
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
     st.markdown("---")
 
     # ── VSM Cost Intelligence Cards ───────────────────────────────────────────
