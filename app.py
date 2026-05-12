@@ -464,7 +464,7 @@ with tab2:
                      for c in pivot_r.columns}
         st.dataframe(
             pivot_r.style
-                .applymap(_color_score)
+                .map(_color_score)
                 .apply(_highlight_month, axis=0),
             use_container_width=True,
             column_config=month_cfg,
@@ -505,8 +505,8 @@ with tab2:
 
         st.dataframe(
             snap_disp.style
-                .applymap(_color_score,  subset=["Score"])
-                .applymap(_color_status, subset=["Status"]),
+                .map(_color_score,  subset=["Score"])
+                .map(_color_status, subset=["Status"]),
             hide_index=True,
             use_container_width=True,
             column_config={
@@ -652,8 +652,8 @@ with tab3:
 
         st.dataframe(
             _r(risk_df).style
-                .applymap(_style_risk,  subset=["Risk Level"])
-                .applymap(_style_trend, subset=["Trend"]),
+                .map(_style_risk,  subset=["Risk Level"])
+                .map(_style_trend, subset=["Trend"]),
             hide_index=True,
             use_container_width=True,
             column_config={
@@ -1058,8 +1058,8 @@ with tab4:
 
             st.dataframe(
                 _r(disp_show).style
-                    .applymap(_style_urgency, subset=["urgency"])
-                    .applymap(_style_conf,    subset=["confidence"]),
+                    .map(_style_urgency, subset=["urgency"])
+                    .map(_style_conf,    subset=["confidence"]),
                 hide_index=True,
                 use_container_width=True,
                 column_config={
@@ -1123,7 +1123,7 @@ with tab4:
                 return "color:#27AE60;"
 
             st.dataframe(
-                _r(roi_table).style.applymap(_style_cumul, subset=["cumul_pct"]),
+                _r(roi_table).style.map(_style_cumul, subset=["cumul_pct"]),
                 hide_index=True,
                 use_container_width=True,
                 column_config={
