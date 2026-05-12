@@ -1198,13 +1198,18 @@ with tab4:
 
         # ── Re-aggregate helper (monthly rows → one row per machine × component) ─
         def _reaggregate_comp(df: pd.DataFrame) -> pd.DataFrame:
+            """
+            Collapse month-level rows into a single aggregated row per
+            (machine_id, component). Categorical fields (failure_type, etc.)
+            are resolved via mode AFTER numeric aggregation so varying values
+            across months never create duplicate machine×component rows.
+            """
             if df.empty:
                 return df
+
+            # Step 1 — numeric aggregation by machine × component
             agg = (
-                df.groupby(
-                    ["machine_id", "component", "vsm", "area", "machine_type",
-                     "failure_type", "technician_type", "part_replaced"]
-                )
+                df.groupby(["machine_id", "component", "vsm", "area", "machine_type"])
                 .agg(
                     failure_count       =("failure_count",       "sum"),
                     total_downtime_hrs  =("total_downtime_hrs",  "sum"),
@@ -1218,6 +1223,23 @@ with tab4:
                 )
                 .reset_index()
             )
+
+            # Step 2 — dominant categorical per machine × component (mode)
+            def _mode1(s):
+                m = s.mode()
+                return m.iloc[0] if len(m) > 0 else ""
+
+            cat = (
+                df.groupby(["machine_id", "component"])
+                .agg(
+                    failure_type    =("failure_type",    _mode1),
+                    technician_type =("technician_type", _mode1),
+                    part_replaced   =("part_replaced",   _mode1),
+                )
+                .reset_index()
+            )
+
+            agg = agg.merge(cat, on=["machine_id", "component"], how="left")
             agg["mttr_component_hrs"] = (
                 agg["total_repair_hrs"] / agg["failure_count"].clip(lower=1)
             ).round(2)

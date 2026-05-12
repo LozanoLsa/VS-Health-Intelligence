@@ -1,11 +1,14 @@
 """
-Prescriptive Analytics Engine
+Prescriptive Analytics Engine  v2.1
 Converts component-level failure intelligence into prioritized, costed action plans.
 
 Logic tiers:
   1. Rule-based triggers  (repeat failures, lead-time risk, MTTR spikes)
   2. Trend signal         (health slope from forecasting layer)
   3. Cost-benefit scoring (cost of action vs projected cost of inaction)
+
+v2.1 — generate_prescriptive_actions accepts data_months param so inaction cost
+        is projected against the actual rolling window, not a hardcoded 16-month base.
 """
 from __future__ import annotations
 
