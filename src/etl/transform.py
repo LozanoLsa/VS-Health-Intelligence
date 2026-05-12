@@ -180,9 +180,15 @@ def compute_monthly_metrics(equipment: pd.DataFrame,
 def compute_component_metrics(equipment: pd.DataFrame,
                                failures: pd.DataFrame) -> pd.DataFrame:
     """
-    Aggregates failure data by component / failure_type / machine.
+    Aggregates failure data by component / failure_type / machine / month.
     Powers the Root Cause & Prescriptive tab.
-    Returns one row per (machine_id, component) combination.
+    Returns one row per (machine_id, component, year_month) combination so the
+    dashboard can filter by any rolling window and recompute Pareto + prescriptive
+    actions for that specific period (e.g. last 3 months vs all history).
+
+    repeat_failure_90d is computed over the FULL dataset per (machine_id, component)
+    and attached to every monthly row — it reflects the all-time repeat pattern
+    regardless of the selected window.
     """
     required = {"component", "failure_type", "technician_type",
                 "part_replaced", "part_cost_usd", "part_lead_time_days",
@@ -195,8 +201,23 @@ def compute_component_metrics(equipment: pd.DataFrame,
         ["vsm", "area", "machine_type", "downtime_cost_per_hr"]
     ].to_dict("index")
 
-    records = []
+    failures = failures.copy()
+    failures["year_month"] = failures["failure_date"].dt.to_period("M").astype(str)
+
+    # Compute repeat_failure_90d per (machine_id, component) across ALL time
+    repeat_map: dict[tuple, bool] = {}
     for (mid, comp), grp in failures.groupby(["machine_id", "component"]):
+        dates     = grp["failure_date"].sort_values().reset_index(drop=True)
+        repeat_90 = False
+        for i in range(len(dates)):
+            window = dates[(dates >= dates[i]) & (dates <= dates[i] + pd.Timedelta(days=90))]
+            if len(window) >= 3:
+                repeat_90 = True
+                break
+        repeat_map[(mid, comp)] = repeat_90
+
+    records = []
+    for (mid, comp, ym), grp in failures.groupby(["machine_id", "component", "year_month"]):
         eq = eq_map.get(mid, {})
         n          = len(grp)
         downtime   = float(grp["downtime_hrs"].sum())
@@ -208,21 +229,13 @@ def compute_component_metrics(equipment: pd.DataFrame,
         cost_hr    = float(eq.get("downtime_cost_per_hr", 100))
         total_cost = round(downtime * cost_hr, 2)
 
-        # Dominant failure_type / technician for this component
+        # Dominant failure_type / technician for this component in this month
         ftype = grp["failure_type"].mode().iloc[0]
         tech  = grp["technician_type"].mode().iloc[0]
         part  = grp["part_replaced"].mode().iloc[0]
 
-        # Repeat-failure flag: same component failed 3+ times in any 90-day window
-        dates     = grp["failure_date"].sort_values().reset_index(drop=True)
-        repeat_90 = False
-        for i in range(len(dates)):
-            window = dates[(dates >= dates[i]) & (dates <= dates[i] + pd.Timedelta(days=90))]
-            if len(window) >= 3:
-                repeat_90 = True
-                break
-
         records.append({
+            "year_month":            ym,
             "machine_id":            mid,
             "vsm":                   eq.get("vsm", ""),
             "area":                  eq.get("area", ""),
@@ -239,15 +252,20 @@ def compute_component_metrics(equipment: pd.DataFrame,
             "avg_part_cost_usd":     avg_cost,
             "part_lead_time_days":   lead_time,
             "total_downtime_cost":   total_cost,
-            "repeat_failure_90d":    repeat_90,
+            "downtime_cost_per_hr":  cost_hr,
+            "repeat_failure_90d":    repeat_map.get((mid, comp), False),
         })
 
     df = pd.DataFrame(records)
-    # Pareto rank: component contribution to total downtime cost
+    if df.empty:
+        return df
+
+    df = df.sort_values(["machine_id", "component", "year_month"]).reset_index(drop=True)
+
+    # Pareto columns are placeholder here — app.py recomputes them after window filtering
     total = df["total_downtime_cost"].sum()
-    df = df.sort_values("total_downtime_cost", ascending=False).reset_index(drop=True)
     df["pct_of_total_cost"] = (df["total_downtime_cost"] / total * 100).round(1)
-    df["cumulative_pct"]    = df["pct_of_total_cost"].cumsum().round(1)
+    df["cumulative_pct"]    = 0.0   # recomputed in dashboard per window
 
     # Round all numeric columns to 2 decimal places
     num_cols = df.select_dtypes(include="number").columns
@@ -255,5 +273,6 @@ def compute_component_metrics(equipment: pd.DataFrame,
 
     log.info(f"  Component metrics: {len(df)} rows "
              f"({df['component'].nunique()} unique components, "
-             f"{df['machine_id'].nunique()} machines)")
+             f"{df['machine_id'].nunique()} machines, "
+             f"{df['year_month'].nunique()} months)")
     return df

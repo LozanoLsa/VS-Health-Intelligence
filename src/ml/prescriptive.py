@@ -76,14 +76,16 @@ def _confidence(n_failures: int, repeat_90: bool, has_trend: bool) -> str:
     return "Low"
 
 
-def _project_inaction_cost(row: pd.Series, months: int = 3) -> float:
+def _project_inaction_cost(row: pd.Series, months: int = 3,
+                            data_months: int = 16) -> float:
     """
     Estimate cost of doing nothing for `months` months.
     Uses historical failure rate × downtime cost per failure.
+    data_months: the actual number of months covered by the input data window
+                 (16 for all history, 3/6/12 for rolling windows).
     """
     n      = max(row["failure_count"], 1)
-    # Assume failures spread over ~16 months of data → monthly rate
-    rate_mo = n / 16.0
+    rate_mo = n / max(data_months, 1)
     projected_fails = rate_mo * months
     avg_downtime_per_fail = (row["total_downtime_hrs"] / n) if n > 0 else 1.0
     cost_per_fail = avg_downtime_per_fail * (row["total_downtime_cost"] / max(row["total_downtime_hrs"], 0.1))
@@ -94,6 +96,7 @@ def generate_prescriptive_actions(
         component_df: pd.DataFrame,
         forecasts_df: pd.DataFrame | None = None,
         inaction_months: int = 3,
+        data_months: int = 16,
 ) -> list[PrescriptiveAction]:
     """
     Generates a prioritized list of PrescriptiveAction for the full machine fleet.
@@ -103,8 +106,10 @@ def generate_prescriptive_actions(
     - failure_count >= 3 in the historical window
     - part_lead_time_days >= 7  AND  failure_count >= 2
     - failure_type == 'software' (automation risk)
-    - mttr_component_hrs > fleet 75th percentile  (slow-to-repair bottleneck)
+    - mttr_component_hrs > Value Stream 75th percentile  (slow-to-repair bottleneck)
     - health_slope < -0.5  (from forecasts_df — deteriorating trend)
+
+    data_months: number of months the component_df covers (affects inaction cost projection).
     """
     if component_df.empty:
         return []
@@ -157,7 +162,7 @@ def generate_prescriptive_actions(
         total_cost  = float(row["total_downtime_cost"])
         labour      = _labour_cost(tech, action)
         cost_to_act = round(part_cost + labour, 2)
-        cost_ignore = _project_inaction_cost(row, inaction_months)
+        cost_ignore = _project_inaction_cost(row, inaction_months, data_months)
         roi         = round((cost_ignore - cost_to_act) / max(cost_to_act, 1) * 100, 1)
 
         conf = _confidence(n_fails, repeat_90, has_trend)

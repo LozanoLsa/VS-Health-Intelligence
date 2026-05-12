@@ -1133,14 +1133,104 @@ with tab4:
 
     if components is None or components.empty:
         st.warning(
-            "Component metrics not found. Click **Refresh Data** in the sidebar "
-            "to generate `component_metrics.csv` from the ETL pipeline."
+            "Component metrics not found. Run the ETL pipeline "
+            "(`python _run_etl.py`) to generate `component_metrics.csv`."
         )
     else:
-        # Apply VSM/Area filter to component data
+        # ── Apply VSM / Area sidebar filter ──────────────────────────────────
         comp_f = components.copy()
         if filter_vsm  != "All": comp_f = comp_f[comp_f["vsm"]  == filter_vsm]
         if filter_area != "All": comp_f = comp_f[comp_f["area"] == filter_area]
+
+        # ── Rolling window selector ───────────────────────────────────────────
+        _all_months_rc = sorted(comp_f["year_month"].unique().tolist())
+        _latest_ym_rc  = pd.Period(_all_months_rc[-1], freq="M") if _all_months_rc else None
+        _total_months  = len(_all_months_rc)
+
+        _WINDOW_OPTS = {
+            "Last 3 months":  3,
+            "Last 6 months":  6,
+            "Last 12 months": 12,
+            f"All history ({_total_months} months)": _total_months,
+        }
+
+        win_col, _ = st.columns([0.38, 0.62])
+        with win_col:
+            selected_window = st.selectbox(
+                "📅 Analysis window",
+                list(_WINDOW_OPTS.keys()),
+                index=len(_WINDOW_OPTS) - 1,
+                help=(
+                    "**Engineers:** select 'Last 3 months' to measure the impact of recent "
+                    "actions. Come back next quarter and compare — if fewer Immediate actions "
+                    "appear, your interventions are working.\n\n"
+                    "**Directors:** the 'vs previous period' bar below the banner shows "
+                    "whether failures and costs are trending up or down."
+                ),
+            )
+
+        data_months_sel = _WINDOW_OPTS[selected_window]
+        _is_all_history = (data_months_sel == _total_months)
+
+        # Compute month lists for current and previous windows
+        if _latest_ym_rc is not None and not _is_all_history:
+            _current_months_rc = [
+                str(_latest_ym_rc - i)
+                for i in range(data_months_sel - 1, -1, -1)
+            ]
+            _prev_months_rc = [
+                str(_latest_ym_rc - data_months_sel - i)
+                for i in range(data_months_sel - 1, -1, -1)
+            ]
+        else:
+            _current_months_rc = _all_months_rc
+            _prev_months_rc    = []
+
+        _comp_window = comp_f[comp_f["year_month"].isin(_current_months_rc)].copy()
+        _comp_prev   = (comp_f[comp_f["year_month"].isin(_prev_months_rc)].copy()
+                        if _prev_months_rc else pd.DataFrame())
+
+        # Period label
+        if _is_all_history:
+            _win_label = f"All history · {_all_months_rc[0]} → {_all_months_rc[-1]}"
+        else:
+            _win_label = f"{selected_window} · {_current_months_rc[0]} → {_current_months_rc[-1]}"
+
+        # ── Re-aggregate helper (monthly rows → one row per machine × component) ─
+        def _reaggregate_comp(df: pd.DataFrame) -> pd.DataFrame:
+            if df.empty:
+                return df
+            agg = (
+                df.groupby(
+                    ["machine_id", "component", "vsm", "area", "machine_type",
+                     "failure_type", "technician_type", "part_replaced"]
+                )
+                .agg(
+                    failure_count       =("failure_count",       "sum"),
+                    total_downtime_hrs  =("total_downtime_hrs",  "sum"),
+                    total_repair_hrs    =("total_repair_hrs",    "sum"),
+                    total_downtime_cost =("total_downtime_cost", "sum"),
+                    avg_diagnose_hrs    =("avg_diagnose_hrs",    "mean"),
+                    avg_part_cost_usd   =("avg_part_cost_usd",  "mean"),
+                    part_lead_time_days =("part_lead_time_days", "median"),
+                    downtime_cost_per_hr=("downtime_cost_per_hr","first"),
+                    repeat_failure_90d  =("repeat_failure_90d",  "any"),
+                )
+                .reset_index()
+            )
+            agg["mttr_component_hrs"] = (
+                agg["total_repair_hrs"] / agg["failure_count"].clip(lower=1)
+            ).round(2)
+            _total = agg["total_downtime_cost"].sum()
+            agg = agg.sort_values("total_downtime_cost", ascending=False).reset_index(drop=True)
+            agg["pct_of_total_cost"] = (
+                agg["total_downtime_cost"] / max(_total, 0.01) * 100
+            ).round(1)
+            agg["cumulative_pct"] = agg["pct_of_total_cost"].cumsum().round(1)
+            return agg
+
+        comp_agg      = _reaggregate_comp(_comp_window)
+        comp_prev_agg = _reaggregate_comp(_comp_prev) if not _comp_prev.empty else pd.DataFrame()
 
         # ── Generate prescriptive actions ─────────────────────────────────────
         with st.spinner("Running prescriptive engine..."):
@@ -1150,15 +1240,24 @@ with tab4:
             else:
                 fc_df_rc = None
 
-            actions     = generate_prescriptive_actions(
-                comp_f, forecasts_df=fc_df_rc,
-                inaction_months=3)
-            actions_df  = actions_to_df(actions) if actions else pd.DataFrame()
+            actions      = generate_prescriptive_actions(
+                comp_agg, forecasts_df=fc_df_rc,
+                inaction_months=3, data_months=data_months_sel)
+            actions_df   = actions_to_df(actions) if actions else pd.DataFrame()
             exec_summary = generate_executive_summary(actions, inaction_months=3)
-            roi_table    = compute_component_roi_table(comp_f)
+            roi_table    = compute_component_roi_table(comp_agg)
+
+            # Previous period — for comparison block
+            if not comp_prev_agg.empty:
+                _actions_prev  = generate_prescriptive_actions(
+                    comp_prev_agg, forecasts_df=fc_df_rc,
+                    inaction_months=3, data_months=data_months_sel)
+                _summary_prev  = generate_executive_summary(_actions_prev, inaction_months=3)
+            else:
+                _summary_prev = None
 
         # ── Executive banner ──────────────────────────────────────────────────
-        imm   = exec_summary["immediate"]
+        imm       = exec_summary["immediate"]
         total_act = exec_summary["cost_to_act"]
         total_ign = exec_summary["cost_if_ignored"]
         roi_pct   = exec_summary["roi_pct"]
@@ -1169,11 +1268,14 @@ with tab4:
             f"""
             <div style="
               background: linear-gradient(135deg, {banner_color} 0%, #1A3552 100%);
-              border-radius: 10px; padding: 18px 24px; margin-bottom: 18px; color: white;
+              border-radius: 10px; padding: 18px 24px; margin-bottom: 12px; color: white;
             ">
               <div style="font-size:1.1rem; font-weight:700; letter-spacing:0.5px;">
-                Root Cause & Prescriptive Intelligence
+                Root Cause &amp; Prescriptive Intelligence
                 &nbsp;&mdash;&nbsp; {exec_summary['total_actions']} actions identified
+                <span style="font-size:0.8rem; font-weight:400; color:#B0C4D8; margin-left:8px;">
+                  · {_win_label}
+                </span>
               </div>
               <div style="display:grid; grid-template-columns: repeat(4,1fr);
                           gap:12px; margin-top:12px;">
@@ -1200,10 +1302,78 @@ with tab4:
             unsafe_allow_html=True,
         )
 
+        # ── Period comparison block ───────────────────────────────────────────
+        if _summary_prev is not None and not _is_all_history:
+            _d_actions  = exec_summary["total_actions"] - _summary_prev["total_actions"]
+            _d_imm      = imm                           - _summary_prev["immediate"]
+            _d_cost_act = total_act                     - _summary_prev["cost_to_act"]
+            _d_cost_ign = total_ign                     - _summary_prev["cost_if_ignored"]
+            _prev_label = f"{_prev_months_rc[0]} → {_prev_months_rc[-1]}"
+
+            def _arrow(delta, good="down"):
+                if delta == 0:
+                    return "→", "#888", "0"
+                up   = delta > 0
+                good_move = (not up if good == "down" else up)
+                sym   = "▲" if up else "▼"
+                color = "#27AE60" if good_move else "#E74C3C"
+                return sym, color, f"{abs(delta):.0f}"
+
+            _sa, _ca, _va   = _arrow(_d_actions,  "down")
+            _si, _ci, _vi   = _arrow(_d_imm,      "down")
+            _sca, _cca, _vca = _arrow(_d_cost_act, "down")
+            _sci, _cci, _vci = _arrow(_d_cost_ign, "down")
+
+            st.markdown(
+                f"""
+                <div style="background:#EBF5FB; border-left:4px solid #2471A3;
+                            border-radius:6px; padding:10px 18px; margin-bottom:18px;">
+                  <span style="font-weight:700; color:#2471A3; font-size:0.88rem;">
+                    📊 vs previous period
+                  </span>
+                  <span style="color:#777; font-size:0.78rem; margin-left:6px;">
+                    ({_prev_label})
+                  </span>
+                  <div style="display:grid; grid-template-columns:repeat(4,1fr);
+                              gap:10px; margin-top:8px; font-size:0.88rem;">
+                    <div>
+                      <span style="color:{_ca}; font-weight:700; font-size:1.1rem;">
+                        {_sa} {_va}
+                      </span>
+                      <span style="color:#555;"> actions identified</span>
+                    </div>
+                    <div>
+                      <span style="color:{_ci}; font-weight:700; font-size:1.1rem;">
+                        {_si} {_vi}
+                      </span>
+                      <span style="color:#555;"> immediate</span>
+                    </div>
+                    <div>
+                      <span style="color:{_cca}; font-weight:700; font-size:1.1rem;">
+                        {_sca} ${abs(_d_cost_act):,.0f}
+                      </span>
+                      <span style="color:#555;"> cost to act</span>
+                    </div>
+                    <div>
+                      <span style="color:{_cci}; font-weight:700; font-size:1.1rem;">
+                        {_sci} ${abs(_d_cost_ign):,.0f}
+                      </span>
+                      <span style="color:#555;"> projected exposure</span>
+                    </div>
+                  </div>
+                  <div style="color:#888; font-size:0.74rem; margin-top:6px;">
+                    🟢 green = improvement &nbsp;·&nbsp; 🔴 red = deterioration
+                    &nbsp;·&nbsp; All deltas vs {_prev_label}
+                  </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
         # ── Section A: Component Pareto ───────────────────────────────────────
         st.markdown("#### A — Component Cost Pareto (80/20)")
         st.caption(
-            "📊 Historical data  ·  "
+            f"📊 {_win_label}  ·  "
             "Which subsystems are consuming the most maintenance budget? "
             "Each bar shows the total accumulated downtime cost per component type "
             "(spindle, servo drive, coolant system, etc.). "
@@ -1223,21 +1393,22 @@ with tab4:
 
         st.markdown("---")
 
-        # ── Section B: Component × Machine Heatmap ───────────────────────────
+        # ── Section B: Component × Machine Heatmap (always all history) ──────
         st.markdown("#### B — Component × Machine Downtime Heatmap")
         st.caption(
-            "📊 Historical data  ·  "
+            f"📊 All history ({_all_months_rc[0]} → {_all_months_rc[-1]})  ·  "
+            "Full structural view — always shows the complete history regardless of the "
+            "window selector above. "
             "Heat matrix: rows = machines, columns = components. "
-            "Each cell color represents accumulated downtime hours for that component "
-            "on that specific machine — darker = more time stopped. "
-            "Use the VSM filter to focus the analysis on a single value stream."
+            "Each cell color represents accumulated downtime hours — darker = more time stopped. "
+            "Use this to detect systemic patterns that require the full data range to be visible."
         )
         vsm_rc = st.radio(
             "VSM filter for heatmap",
             ["All", "Alpha", "Beta", "Gamma"],
             horizontal=True, key="rc_vsm_heatmap",
         )
-        fig_hmap = plot_component_machine_heatmap(components, vsm_filter=vsm_rc)
+        fig_hmap = plot_component_machine_heatmap(comp_f, vsm_filter=vsm_rc)
         st.pyplot(fig_hmap, use_container_width=True)
         st.info(
             "💡 **How to read it:** If an entire column is dark (e.g. 'coolant_system' "
@@ -1253,14 +1424,14 @@ with tab4:
         # ── Section C: MTTR by failure type ──────────────────────────────────
         st.markdown("#### C — Avg MTTR by Failure Type & Area")
         st.caption(
-            "📊 Historical data  ·  "
+            f"📊 {_win_label}  ·  "
             "Average repair time (MTTR) grouped by failure type and production area. "
             "This chart does not show how often a component fails — "
             "it shows how long it takes to get back online once it does. "
             "A high MTTR points to diagnostic bottlenecks, missing spare parts, "
             "or the need for a specialist technician."
         )
-        fig_mttr = plot_mttr_by_failure_type(comp_f if not comp_f.empty else components)
+        fig_mttr = plot_mttr_by_failure_type(comp_agg if not comp_agg.empty else comp_f)
         st.pyplot(fig_mttr, use_container_width=True)
         st.info(
             "💡 **How to read it:** Electrical failures tend to have the highest MTTR "
@@ -1276,7 +1447,7 @@ with tab4:
         # ── Section D: Prescriptive Action Table ─────────────────────────────
         st.markdown("#### D — Prioritized Prescriptive Action Plan")
         st.caption(
-            "🔀 Historical data + forecast trend  ·  "
+            f"🔀 {_win_label} + forecast trend  ·  "
             "Prioritized action plan generated automatically by the prescriptive engine. "
             "Each recommendation combines historical failure frequency, "
             "repeat patterns within 90-day windows, and the health score deterioration slope "
@@ -1287,7 +1458,7 @@ with tab4:
         st.info(
             "💡 **How to read it:** "
             "'Act Cost' = part cost + estimated technician hours. "
-            "'Ignore Cost' = 3-month projection if no action is taken (based on historical failure rate). "
+            "'Ignore Cost' = 3-month projection if no action is taken (based on failure rate in selected window). "
             "'ROI' = how much is saved per dollar invested in the preventive action. "
             "Urgency 'Immediate' = requires attention before the next production shift.",
             icon=None,
@@ -1362,12 +1533,12 @@ with tab4:
         st.markdown("---")
         st.markdown("#### E — Cost to Act vs Cost if Ignored")
         st.caption(
-            "📈 3-month projection  ·  "
+            f"📈 {_win_label} · 3-month projection  ·  "
             "Side-by-side comparison per action: left bar = cost of intervening now "
             "(part + labor), right bar = projected cost of doing nothing "
             "over the next 3 months. "
-            "The inaction cost is calculated as historical failure rate x average cost per event "
-            "x 3 months — this is not an ML model, it is risk arithmetic grounded in real data."
+            "The inaction cost is calculated as failure rate in the selected window "
+            "× average cost per event × 3 months — risk arithmetic grounded in real data."
         )
         if not actions_df.empty:
             fig_urg = plot_prescriptive_urgency_chart(actions_df)
@@ -1380,11 +1551,11 @@ with tab4:
                 icon=None,
             )
 
-        # ── Section F: VS ROI table ────────────────────────────────────────
+        # ── Section F: VS ROI table ───────────────────────────────────────────
         st.markdown("---")
         st.markdown("#### F — Component ROI Summary (Value Stream-wide)")
         st.caption(
-            "📊 Historical data  ·  "
+            f"📊 {_win_label}  ·  "
             "Consolidated view of which components generate the most maintenance cost "
             "across all Value Streams (Alpha, Beta, Gamma) and all machines combined. "
             "Unlike the Pareto chart (section A), this table also shows how many machines "
