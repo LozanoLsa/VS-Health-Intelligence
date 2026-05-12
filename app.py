@@ -649,11 +649,52 @@ with tab2:
         )
 
         # ── KPI summary for selected range ────────────────────────────────────
+        _total_failures = int(monthly_range["failures_count"].sum())
+        _total_cost     = monthly_range["monthly_downtime_cost"].sum()
+        _avg_fails_mo   = _total_failures / n_months_sel if n_months_sel > 0 else 0
+        _avg_cost_mo    = _total_cost     / n_months_sel if n_months_sel > 0 else 0
+
         k1, k2, k3, k4 = st.columns(4)
-        k1.metric("Machines",       monthly_range["machine_id"].nunique())
-        k2.metric("Avg Score",      f"{monthly_range['health_score'].mean():.1f}")
-        k3.metric("Total Failures", int(monthly_range["failures_count"].sum()))
-        k4.metric("Total Cost",     f"${monthly_range['monthly_downtime_cost'].sum():,.0f}")
+        k1.metric(
+            "Machines",
+            monthly_range["machine_id"].nunique(),
+            help="Number of unique machines with at least one record in the selected date range.",
+        )
+        k2.metric(
+            "Avg Score",
+            f"{monthly_range['health_score'].mean():.1f}",
+            help=(
+                "Average health score across all machine-months in the selected range. "
+                "Each machine contributes one score per month (0–100). "
+                "This is the fleet-wide average over the entire period."
+            ),
+        )
+        k3.metric(
+            "Total Failures",
+            f"{_total_failures:,}",
+            help=(
+                f"Sum of ALL failure events recorded across all {monthly_range['machine_id'].nunique()} machines "
+                f"over the {n_months_sel} selected months. "
+                f"This is an accumulated count — not a snapshot. "
+                f"Monthly average: ~{_avg_fails_mo:.0f} failures / month across the fleet."
+            ),
+        )
+        k4.metric(
+            "Total Cost",
+            f"${_total_cost:,.0f}",
+            help=(
+                f"Accumulated downtime cost over the {n_months_sel} selected months. "
+                f"Calculated as: downtime hours × cost per hour, per machine, per month — then summed. "
+                f"Monthly average: ~${_avg_cost_mo:,.0f} / month. "
+                f"Source: equipment_master.csv (downtime_cost_per_hr) × failures.csv (downtime_hrs)."
+            ),
+        )
+        st.caption(
+            f"↑ All four KPIs are **accumulated totals** over the {n_months_sel}-month window "
+            f"({month_from} → {month_to}), not point-in-time snapshots. "
+            f"Monthly averages: **~{_avg_fails_mo:.0f} failures/mo** · "
+            f"**~${_avg_cost_mo:,.0f}/mo** downtime cost."
+        )
 
         st.markdown("---")
 
